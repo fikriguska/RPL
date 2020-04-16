@@ -15,8 +15,8 @@
 				<ul>
 					<li class="active"><a href="#">Home</a></li>
 					<li><a href="#">Saran</a></li>
-					<li><a href="#">Log in</a></li>
-					<li><a href="#">Sign Up</a></li>
+					<li><a href="/login">Log in</a></li>
+					<li><a href="/signup">Sign Up</a></li>
 
 				</ul>
 				<div class="search-box">
