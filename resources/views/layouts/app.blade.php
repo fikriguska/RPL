@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/login.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/login.css') }}"> -->
     
 	<script src="https://kit.fontawesome.com/4814c1385c.js" crossorigin="anonymous"></script>
 </head>
@@ -45,7 +45,6 @@
                     </form>
                     @endguest
                     
-
 				</ul>
 				<div class="search-box">
 					<input class="search-txt" type="text" name="" pllaceholder="Kamu mau cari apa ?">
