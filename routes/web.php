@@ -25,3 +25,8 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
+Route::get('/user', 'minef00d@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

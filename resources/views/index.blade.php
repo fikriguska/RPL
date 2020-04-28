@@ -9,11 +9,10 @@
 		<header>
 			<div class="main">
 				<div class="logo">
-                    <!-- todo: Masukin Logo -->
-					<img src="C:\Users\Ananda\Documents\RPL\logo.png" alt="logo">
+					<img src="{{ asset('assets/img/logo.png') }}" alt="logo">
 				</div>
 				<ul>
-					<li class="active"><a href="#">Home</a></li>
+					<li class="active"><a href="/">Home</a></li>
 					<li><a href="#">Saran</a></li>
 					<li><a href="/login">Log in</a></li>
 					<li><a href="/signup">Sign Up</a></li>
