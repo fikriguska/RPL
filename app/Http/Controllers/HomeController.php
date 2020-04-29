@@ -25,4 +25,10 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function saran()
+    {
+        $this->middleware('auth');
+        return view('saran');
+    }
 }

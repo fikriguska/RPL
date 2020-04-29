@@ -10,16 +10,14 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
-    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/login.css') }}"> -->
     
 	<script src="https://kit.fontawesome.com/4814c1385c.js" crossorigin="anonymous"></script>
 </head>
@@ -32,7 +30,7 @@
 				</div>
 				<ul>
 					<li class="active"><a href="/">Home</a></li>
-                    <li><a href="#">Saran</a></li>
+                    <li><a href="/saran">Saran</a></li>
                     @guest
                     <li><a href="{{ route('login') }}">Log in</a></li>
                     @if (Route::has('register'))

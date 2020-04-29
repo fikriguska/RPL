@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-				
+		
 	<div class="login-box">
 		<h1>Log in</h1>
 		<h2><img src="{{ asset('assets/img/logom.png') }}" alt="logom"></h2>
