@@ -37,6 +37,7 @@
                     <li><a href="{{ route('register')}}">Sign Up</a></li>
                     @endif
                     @else
+                    <li><a href="/saran">profile</a></li>
                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a></li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf

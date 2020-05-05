@@ -25,6 +25,8 @@ Route::get('/login', function () {
 Route::get('/user', 'minef00d@index');
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/saran', 'saranController@index');
+
 Route::resource('produk', 'produkController');
+Route::post('/create-saran', 'saranController@store')->name('create_saran');
