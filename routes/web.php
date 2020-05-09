@@ -36,3 +36,8 @@ Route::post('/profile/update/{id}',  ['as' => 'edit_profile', 'uses' => 'profile
 
 Route::resource('produk', 'produkController');
 Route::post('/create-saran', 'saranController@store')->name('create_saran');
+
+Route::get('/admin', 'adminUserController@index')->name('admin');
+Route::get('/admin/saran', 'adminSaranController@index');
+
+
