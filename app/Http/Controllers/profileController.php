@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;    
-use App\Saran;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 use DB;
 
-class saranController extends Controller
+class profileController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -26,8 +26,8 @@ class saranController extends Controller
      */
     public function index()
     {
-        // 
-        return view('saran.saran');
+        //
+        return view('profile.profile');
     }
 
     /**
@@ -49,15 +49,6 @@ class saranController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,
-        [
-            'pesan' => 'required',
-        ]);
-        $saran = new saran();
-        $saran->id_user = Auth::user()->id;
-        $saran->pesan = $request->pesan;
-        $saran->save();
-        return redirect('/saran');
     }
 
     /**
@@ -77,9 +68,12 @@ class saranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         //
+        $user = Auth::user();
+        // $user = 
+        return view('/profile/edit')->with('user', $user);
     }
 
     /**
@@ -92,6 +86,25 @@ class saranController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $this->validate($request, [
+            'name' => ['string', 'nullable', 'max:255'],
+            'email' => ['string', 'nullable', 'email', 'max:255', 'unique:users,email,'.$id],
+            'password' => ['string', 'nullable'],
+        ]);
+
+
+        $user = User::find($id);
+        if($request->name != null)
+            $user->name = $request->name;
+        if($request->email != null)
+            $user->email = $request->email;
+        if($request->password != null)
+            $user->password = Hash::make($request->password);   
+        
+        $user->save();
+
+        return back();
     }
 
     /**

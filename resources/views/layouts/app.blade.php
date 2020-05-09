@@ -30,14 +30,14 @@
 				</div>
 				<ul>
 					<li class="active"><a href="/">Home</a></li>
-                    <li><a href="/saran">Saran</a></li>
                     @guest
                     <li><a href="{{ route('login') }}">Log in</a></li>
                     @if (Route::has('register'))
                     <li><a href="{{ route('register')}}">Sign Up</a></li>
                     @endif
                     @else
-                    <li><a href="/saran">profile</a></li>
+                    <li><a href="/saran">Saran</a></li>
+                    <li><a href="/profile">profile</a></li>
                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a></li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
