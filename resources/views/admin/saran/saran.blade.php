@@ -95,7 +95,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/admin">User</a>
+          <a class="nav-item nav-link" href="/admin/user">User</a>
           <a class="nav-item nav-link active" href="/admin/saran">Saran</a>
           <a class="nav-item nav-link" href="/admin/produk">Produk</a>
           <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -117,18 +117,17 @@
 							</tr>
 						</thead>
 						<tbody>
-                        @if(count($saran) > 0)
-                        @foreach($saran as $s)
-                        <tr>
+            @if(count($saran) > 0)
+            @foreach($saran as $s)
+            <tr>
 									<td class="column1">{{ $s->id }}</td>
 									<td class="column2">{{ $s->id_user }}</td>
 									<td class="column3">{{ $s->pesan }}</td>
-									<td class="column6"><span class="badge badge-danger">hapus</span> <span class="badge badge-warning">edit</span></td>
+									<td class="column6"><a href="/admin/saran/delete/{{ $s->id }}"><span class="badge badge-danger">hapus</span></a></td>
 						</tr>
-                        @endforeach
-                        @else
-                            <h2> Daftar Produk Kosong? Hubungi Admin! </h2>
-                        @endif
+            @endforeach
+            @else
+            @endif
 								
 						</tbody>
 					</table>

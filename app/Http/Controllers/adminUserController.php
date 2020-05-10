@@ -3,11 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Saran;
+    
 
 
 class adminUserController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +28,10 @@ class adminUserController extends Controller
     public function index()
     {
         //
+        if(!Auth::user()->admin)
+            return back();
         $users = User::all();
-        return view('admin.admin')->with('users', $users);
+        return view('admin.user.admin')->with('users', $users);
     }
 
     /**
@@ -84,5 +98,10 @@ class adminUserController extends Controller
     public function destroy($id)
     {
         //
+        $saran = Saran::where('id_user', $id);
+        $saran->delete();
+        $user = User::find($id);
+        $user->delete();
+        return back();
     }
 }

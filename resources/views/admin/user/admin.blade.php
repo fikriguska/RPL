@@ -95,7 +95,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="/admin">User</a>
+          <a class="nav-item nav-link active" href="/admin/user">User</a>
           <a class="nav-item nav-link" href="/admin/saran">Saran</a>
           <a class="nav-item nav-link" href="/admin/produk">Produk</a>
           <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -118,20 +118,19 @@
 							</tr>
 						</thead>
 						<tbody>
-                        @if(count($users) > 0)
-                        @foreach($users as $user)
-                        <tr>
+            @if(count($users) > 0)
+            @foreach($users as $user)
+            <tr>
 									<td class="column1">{{ $user->id }}</td>
 									<td class="column2">{{ $user->id_penyakit }}x</td>
 									<td class="column3">{{ $user->name }}</td>
 									<td class="column4">{{ $user->email }}</td>
 									<td class="column5">{{ $user->admin }}</td>
-									<td class="column6"><span class="badge badge-danger">hapus</span> <span class="badge badge-warning">edit</span></td>
+									<td class="column6"> <a href="/admin/user/delete/{{$user->id}}"> <span class="badge badge-danger">hapus</span></a> <span class="badge badge-warning">edit</span></td>
 						</tr>
-                        @endforeach
-                        @else
-                            <h2> Daftar Produk Kosong? Hubungi Admin! </h2>
-                        @endif
+            @endforeach
+            @else
+            @endif
 								
 						</tbody>
 					</table>
