@@ -34,7 +34,6 @@
         margin-bottom: 0;
         }
         table tbody tr td:before {
-        font-family: OpenSans-Regular;
         font-size: 14px;
         color: #999999;
         line-height: 1.2;
@@ -48,21 +47,14 @@
         content: "Id";
         }
         table tbody tr td:nth-child(2):before {
-        content: "Penyakit";
+        content: "Id User";
         }
         table tbody tr td:nth-child(3):before {
-        content: "Nama";
+        content: "Pesan";
         }
         table tbody tr td:nth-child(4):before {
-        content: "Email";
-        }
-        table tbody tr td:nth-child(5):before {
-        content: "Admin";
-        }
-        table tbody tr td:nth-child(6):before {
         content: "Aksi";
         }
-    
         .column4,
         .column5,
         .column6 {

@@ -38,6 +38,8 @@ Route::resource('produk', 'produkController');
 Route::post('/create-saran', 'saranController@store')->name('create_saran');
 
 Route::get('/admin/user', 'adminUserController@index')->name('admin');
+Route::get('/admin/user/edit/{id}', 'adminUserController@edit');
+Route::post('/admin/user/update/{id}', 'adminUserController@update')->name('admin_edit_profile');
 Route::get('/admin/user/delete/{id}', 'adminUserController@destroy');
 
 Route::get('/admin/saran', 'adminSaranController@index');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Saran;
     
@@ -75,6 +76,8 @@ class adminUserController extends Controller
     public function edit($id)
     {
         //
+        $user = User::find($id);
+        return view('admin.user.edit')->with('user', $user);
     }
 
     /**
@@ -87,6 +90,28 @@ class adminUserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'name' => ['string', 'nullable', 'max:255'],
+            'email' => ['string', 'nullable', 'email', 'max:255', 'unique:users,email,'.$id],
+            'password' => ['string', 'nullable','max:16'],
+            'admin' => ['nullable', 'integer'],
+        ]);
+
+
+        $user = User::find($id);
+        if($request->name != null)
+            $user->name = $request->name;
+        if($request->email != null)
+            $user->email = $request->email;
+        if($request->password != null)
+            $user->password = Hash::make($request->password);   
+        if($request->admin != null)
+            $user->admin = $request->admin;
+
+        
+        $user->save();
+
+        return back();
     }
 
     /**

@@ -3,12 +3,6 @@
 [ FONT ]*/
 
 
-@font-face {
-    font-family: OpenSans-Regular;
-    src: url('../fonts/OpenSans/OpenSans-Regular.ttf'); 
-  }
-  
-  
   
   /*//////////////////////////////////////////////////////////////////
   [ RESTYLE TAG ]*/
@@ -122,6 +116,9 @@
   }
   
   table {
+    -webkit-box-shadow: 10px -7px 77px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px -7px 77px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px -7px 77px 0px rgba(0,0,0,0.75);
     border-spacing: 1;
     border-collapse: collapse;
     background: white;
@@ -225,3 +222,5 @@
       padding-right: 15px;
     }
   }
+
+  

@@ -103,40 +103,74 @@
     </nav>
     <div class="limiter">
 		<div class="container-table100">
-			<div class="wrap-table100">
-				<div class="table100">
-					<table>
-						<thead>
-							<tr class="table100-head">
-								<th class="column1">Id</th>
-								<th class="column2">Penyakit</th>
-								<th class="column3">Nama</th>
-								<th class="column4">Email</th>
-								<th class="column5">Admin</th>
-								<th class="column6">Aksi</th>
-							</tr>
-						</thead>
-						<tbody>
-            @if(count($users) > 0)
-            @foreach($users as $user)
-            <tr>
-									<td class="column1">{{ $user->id }}</td>
-									<td class="column2">{{ $user->id_penyakit }}x</td>
-									<td class="column3">{{ $user->name }}</td>
-									<td class="column4">{{ $user->email }}</td>
-									<td class="column5">{{ $user->admin }}</td>
-									<td class="column6"> <a href="/admin/user/delete/{{$user->id}}"> <span class="badge badge-danger">hapus</span></a> <a href="/admin/user/edit/{{$user->id}}"> <span class="badge badge-warning">edit</span> </a> </td>
-						</tr>
-            @endforeach
-            @else
-            @endif
-								
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
+		<div class="wrap-table100">
+    @error('name')
+    <div style="background-color: red;color : #fff; margin-bottom: 10px;">
+                {{ $message }}
+    </div>
+    @enderror
+    @error('password')
+    <div style="background-color: red;color : #fff; margin-bottom: 10px;">
+                {{ $message }}
+    </div>
+    @enderror
+    @error('email')
+            <div style="background-color: red;color : #fff; margin-bottom: 10px;">
+                {{ $message }}
+            </div>
+    @enderror
+      <form method="POST" action="{{route('admin_edit_profile', $user->id)}}">
+					{{ csrf_field() }}
+
+        <div class="form-group row">
+          <label for="inputNama3" class="col-sm-2 col-form-label">Nama</label>
+          <div class="col-sm-10">
+            <input type="text" name="name" class="form-control" id="inputNama3" placeholder="Nama" value="{{ $user->name }}">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input type="text" name="email" class="form-control" id="inputEmail3" placeholder="Email" value="{{ $user->email }}">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword2" name="password" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword32" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputAdmin" class="col-sm-2 col-form-label">Admin</label>
+          <div class="col-sm-10">
+            <input type="number" name="admin" class="form-control" id="inputAdmin" placeholder="Admin" value="{{ $user->email }}">
+          </div>
+        </div>
+        <!-- <label for="inputadmin">Example select</label>
+        <select class="form-control" id="inputadmin">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select> -->
+
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+    </div>
+
 
 </body>
 </html>
