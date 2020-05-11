@@ -37,6 +37,7 @@ Route::post('/profile/update/{id}',  ['as' => 'edit_profile', 'uses' => 'profile
 Route::resource('produk', 'produkController');
 Route::post('/create-saran', 'saranController@store')->name('create_saran');
 
+// ADMIN CONTROLLER
 Route::get('/admin/user', 'adminUserController@index')->name('admin');
 Route::get('/admin/user/edit/{id}', 'adminUserController@edit');
 Route::post('/admin/user/update/{id}', 'adminUserController@update')->name('admin_edit_profile');
@@ -44,6 +45,16 @@ Route::get('/admin/user/delete/{id}', 'adminUserController@destroy');
 
 Route::get('/admin/saran', 'adminSaranController@index');
 Route::get('/admin/saran/delete/{id}', 'adminSaranController@destroy');
+
+Route::get('/admin/produk', 'adminProdukController@index');
+Route::get('/admin/produk/edit/{id}', 'adminProdukController@edit');
+Route::post('/admin/produk/update/{id}', 'adminProdukController@update')->name('admin_edit_produk');
+Route::post('/admin/produk/store', 'adminProdukController@store')->name('admin_create_produk');
+Route::get('/admin/produk/create', 'adminProdukController@create');
+Route::get('/admin/produk/delete/{id}', 'adminProdukController@destroy');
+
+
+
 
 
 

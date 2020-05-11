@@ -104,61 +104,41 @@
     <div class="limiter">
 		<div class="container-table100">
 		<div class="wrap-table100">
-    @error('nama')
+    @error('name')
     <div style="background-color: red;color : #fff; margin-bottom: 10px;">
                 {{ $message }}
     </div>
     @enderror
-    @error('komposisi')
+    @error('password')
     <div style="background-color: red;color : #fff; margin-bottom: 10px;">
                 {{ $message }}
     </div>
     @enderror
-      <form method="POST" action="{{route('admin_edit_profile', $user->id)}}">
-					{{ csrf_field() }}
+    @error('email')
+            <div style="background-color: red;color : #fff; margin-bottom: 10px;">
+                {{ $message }}
+            </div>
+    @enderror
+      <form method="POST" action="{{route('admin_edit_produk', $produk->id)}}">
+      {{ csrf_field() }}
 
         <div class="form-group row">
           <label for="inputNama3" class="col-sm-2 col-form-label">Nama</label>
           <div class="col-sm-10">
-            <input type="text" name="name" class="form-control" id="inputNama3" placeholder="Nama" value="{{ $user->name }}">
+            <input type="text" name="nama" class="form-control" id="inputNama3" placeholder="Nama" value="{{ $produk->nama }}">
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Komposisi</label>
           <div class="col-sm-10">
-            <input type="text" name="email" class="form-control" id="inputEmail3" placeholder="Email" value="{{ $user->email }}">
+            <input type="text" name="komposisi" class="form-control" id="inputEmail3" placeholder="Komposisi" value="{{ $produk->komposisi }}">
           </div>
         </div>
-        <div class="form-group row">
-          <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-          <div class="col-sm-10">
-            <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputPassword2" name="password" class="col-sm-2 col-form-label">Password</label>
-          <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword32" placeholder="Password">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputAdmin" class="col-sm-2 col-form-label">Admin</label>
-          <div class="col-sm-10">
-            <input type="number" name="admin" class="form-control" id="inputAdmin" placeholder="Admin" value="{{ $user->email }}">
-          </div>
-        </div>
-        <!-- <label for="inputadmin">Example select</label>
-        <select class="form-control" id="inputadmin">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select> -->
+
 
         <div class="form-group row">
           <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
           </div>
         </div>
       </form>

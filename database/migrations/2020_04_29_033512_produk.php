@@ -18,6 +18,8 @@ class Produk extends Migration
             $table->id();
             $table->string('nama');
             $table->string('komposisi');
+            $table->timestamps();
+
         });
     }
 
