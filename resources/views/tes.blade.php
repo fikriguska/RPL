@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('assets/css/typeahead.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/js/tagsinput.js') }}"></script>
+    <script src="{{ asset('assets/js/typeahead.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/util.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css')}}">
+	  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css')}}">  
 
     <style>
         html, body{
@@ -104,68 +113,80 @@
     <div class="limiter">
 		<div class="container-table100">
 		<div class="wrap-table100">
-    @error('nama')
+    @error('name')
     <div style="background-color: red;color : #fff; margin-bottom: 10px;">
                 {{ $message }}
     </div>
     @enderror
-    @error('komposisi')
+    @error('password')
     <div style="background-color: red;color : #fff; margin-bottom: 10px;">
                 {{ $message }}
     </div>
     @enderror
-      <form method="POST" action="{{route('admin_edit_profile', $user->id)}}">
-					{{ csrf_field() }}
+    @error('email')
+            <div style="background-color: red;color : #fff; margin-bottom: 10px;">
+                {{ $message }}
+            </div>
+    @enderror
+      <form method="POST" action="{{route('admin_create_produk')}}">
+      {{ csrf_field() }}
 
         <div class="form-group row">
           <label for="inputNama3" class="col-sm-2 col-form-label">Nama</label>
           <div class="col-sm-10">
-            <input type="text" name="name" class="form-control" id="inputNama3" placeholder="Nama" value="{{ $user->name }}">
+            <input type="text" name="nama" class="form-control" id="inputNama3" placeholder="Nama" >
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Komposisi</label>
           <div class="col-sm-10">
-            <input type="text" name="email" class="form-control" id="inputEmail3" placeholder="Email" value="{{ $user->email }}">
+            <input type="text" name="komposisi" class="form-control" id="inputEmail3" placeholder="Komposisi">
           </div>
         </div>
-        <div class="form-group row">
-          <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-          <div class="col-sm-10">
-            <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputPassword2" name="password" class="col-sm-2 col-form-label">Password</label>
-          <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword32" placeholder="Password">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputAdmin" class="col-sm-2 col-form-label">Admin</label>
-          <div class="col-sm-10">
-            <input type="number" name="admin" class="form-control" id="inputAdmin" placeholder="Admin" value="{{ $user->email }}">
-          </div>
-        </div>
-        <!-- <label for="inputadmin">Example select</label>
-        <select class="form-control" id="inputadmin">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select> -->
+
 
         <div class="form-group row">
           <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary">edit</button>
+            <button type="submit" class="btn btn-primary">Tambah</button>
           </div>
         </div>
       </form>
     </div>
+    
+
+
+
+
+<div class="form-group">
+    <label>Typeahed</label>
+    <input type="text" id="tagstype" style="width:400px;">
+</div>
+<script>
+        var cities = new Bloodhound({
+          datumTokenizer: Bloodhound.tokenizers.obj.whitespace('nama'),
+          queryTokenizer: Bloodhound.tokenizers.whitespace,
+          prefetch: '{{ route("komposisi") }}'
+          // prefetch: '{{ asset("assets/json/cities.json") }}'
+        });
+        cities.initialize();
+
+        var elt = $('#tagstype');
+        elt.tagsinput({
+          itemValue: 'id',
+          itemText: 'nama',
+          typeaheadjs: {
+            name: 'cities',
+            displayKey: 'nama',
+            source: cities.ttAdapter()
+          }
+        });
+</script>
+
+
     </div>
     </div>
 
 
 </body>
 </html>
+

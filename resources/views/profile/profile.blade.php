@@ -12,7 +12,7 @@
 			<img src="">
 			<div class="title">
 				<h2>{{ Auth::user()->name }}</h2>
-				<h3>Mahasiswa</h3>
+				<!-- <h3>Mahasiswa</h3> -->
 
 			</div>
 			<a href="/profile/edit"> <input class="btn" type="button" name="" value="Edit Profile"> </a>

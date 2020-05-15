@@ -3,32 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Produk;
+use App\Komposisi;
+use App\Penyakit;
 
-class adminProdukController extends Controller
+
+class komposisiController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function komposisi()
     {
         //
-        if(!Auth::user()->admin)
-            return back();
-        $produk = Produk::all();
-        return view('admin.produk.produk')->with('produk', $produk);
+        $ret = Komposisi::all();
+        return $ret;
+    }
+
+    public function penyakit()
+    {
+        //
+        $ret = Penyakit::all();
+        return $ret;
     }
 
     /**
@@ -39,7 +36,6 @@ class adminProdukController extends Controller
     public function create()
     {
         //
-        return view('admin.produk.create');
     }
 
     /**
@@ -51,12 +47,6 @@ class adminProdukController extends Controller
     public function store(Request $request)
     {
         //
-        $produk = new Produk;
-        $produk->nama = $request->nama;
-        $produk->komposisi = $request->komposisi;
-
-        $produk->save();
-        return back();
     }
 
     /**
@@ -79,8 +69,6 @@ class adminProdukController extends Controller
     public function edit($id)
     {
         //
-        $produk = Produk::find($id);
-        return view('admin.produk.edit')->with('produk', $produk);
     }
 
     /**
@@ -93,22 +81,6 @@ class adminProdukController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request, [
-            'nama' => ['string', 'nullable', 'max:255'],
-            'komposisi' => ['string', 'nullable', 'max:255'],
-        ]);
-
-
-        $produk = Produk::find($id);
-        if($request->nama != null)
-            $produk->nama = $request->nama;
-        if($request->komposisi != null)
-            $produk->komposisi = $request->komposisi;
-
-        
-        $produk->save();
-
-        return back();
     }
 
     /**
@@ -120,8 +92,5 @@ class adminProdukController extends Controller
     public function destroy($id)
     {
         //
-        $produk = Produk::find($id);
-        $produk->delete();
-        return back();
     }
 }

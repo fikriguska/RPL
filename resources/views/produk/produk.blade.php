@@ -48,7 +48,7 @@
     <li><a href="#"><img src="http://placehold.it/150x150" /></a></li> -->
     @if(count($produk) > 0)
     @foreach($produk as $p)
-        <li><a href="/produk/{{$p->id}}"><img src="http://placehold.it/150x150" /></a</li>
+        <li><a href="/produk/{{$p->id}}"><img src="http://placehold.it/150x150" /></a></li>
     @endforeach
     @else
         <h2> Daftar Produk Kosong? Hubungi Admin! </h2>

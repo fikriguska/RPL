@@ -30,9 +30,10 @@ body{
 }
 
 .login-box h2 img{
+	
 	margin-right: 10px;
 	font-size: 5px;
-	margin-left: 110px;
+	margin-left: 128px;
 	height: 80px;
 	width: auto;
 
@@ -160,4 +161,5 @@ input[type=password]{
 	position: absolute;
 	width: 160px;
 	height: auto;
+
 }

@@ -5,6 +5,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Penyakit;
+use App\RiwayatPenyakit;
+
 
 use DB;
 
@@ -72,8 +75,13 @@ class profileController extends Controller
     {
         //
         $user = Auth::user();
+        $riwayat = RiwayatPenyakit::select('id_penyakit')->where('id_user', $user->id)->get();
+        $penyakit = Penyakit::all();
+        // foreach($riwayat as $r)
+        //     echo var_dump($penyakit[$r->id_penyakit-1]->nama);
+        // return;
         // $user = 
-        return view('/profile/edit')->with('user', $user);
+        return view('/profile/edit')->with('user', $user)->with('riwayat', $riwayat)->with('penyakit', $penyakit);
     }
 
     /**
@@ -91,6 +99,7 @@ class profileController extends Controller
             'name' => ['string', 'nullable', 'max:255'],
             'email' => ['string', 'nullable', 'email', 'max:255', 'unique:users,email,'.$id],
             'password' => ['string', 'nullable'],
+            'penyakit' => ['nullable']
         ]);
 
 
@@ -100,8 +109,39 @@ class profileController extends Controller
         if($request->email != null)
             $user->email = $request->email;
         if($request->password != null)
-            $user->password = Hash::make($request->password);   
-        
+            $user->password = Hash::make($request->password);  
+        if($request->penyakit != null){
+            $penyakit = explode(",", $request->penyakit);
+            //  menambahkan penyakit baru jika tidak terdapat pada table
+            foreach($penyakit as $p){
+                if(!RiwayatPenyakit::where('id_user', $id)->where('id_penyakit', $p)->exists() && $penyakit != ""){
+                    $riwayat = new RiwayatPenyakit;
+                    $riwayat->id_user = $id;
+                    $riwayat->id_penyakit = $p;
+                    $riwayat->save();
+                }
+            }
+             // menghapus penyakit yang tidak terdapat pada request yang baru
+            $qpenyakit = RiwayatPenyakit::where('id_user', $id)->get();
+            foreach($qpenyakit as $p){
+                if(!in_array($p->id_penyakit, $penyakit)){
+                    $p->delete();
+                }
+            }
+        }
+        // jika request penyakit tidak ada, hapus semua riwayat user 
+        else{
+            $qpenyakit = RiwayatPenyakit::where('id_user', $id)->get();
+            foreach($qpenyakit as $p){
+                    $p->delete();
+            }
+        }
+
+                
+                
+
+               
+    
         $user->save();
 
         return back();

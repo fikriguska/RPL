@@ -32,7 +32,7 @@ Route::get('/profile/edit', 'profileController@edit');
 
 // Route::post('/profile/update/{id}', 'profileController@update')->name('edit_profile');
 // Route::get('/profile/edit', ['uses' => 'profileController@edit'])->name('edit_profile');
-Route::post('/profile/update/{id}',  ['as' => 'edit_profile', 'uses' => 'profileController@update']);
+Route::post('/profile/update/{id}',  'profileController@update')->name('edit_profile');
 
 Route::resource('produk', 'produkController');
 Route::post('/create-saran', 'saranController@store')->name('create_saran');
@@ -52,6 +52,13 @@ Route::post('/admin/produk/update/{id}', 'adminProdukController@update')->name('
 Route::post('/admin/produk/store', 'adminProdukController@store')->name('admin_create_produk');
 Route::get('/admin/produk/create', 'adminProdukController@create');
 Route::get('/admin/produk/delete/{id}', 'adminProdukController@destroy');
+
+Route::get('/json_komposisi', 'komposisiController@komposisi')->name('json_komposisi');
+Route::get('/json_penyakit', 'komposisiController@penyakit')->name('json_penyakit');
+
+Route::get('/tes', function () {
+    return view('tes');
+});
 
 
 
