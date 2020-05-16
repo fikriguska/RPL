@@ -15,7 +15,7 @@ class Komposisi extends Migration
     {
         //
         Schema::create('komposisi', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('nama');
             $table->timestamps();
         });

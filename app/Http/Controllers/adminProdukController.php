@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Produk;
+use App\KomposisiProduk;
+use App\Komposisi;
+
 
 class adminProdukController extends Controller
 {
@@ -28,7 +31,9 @@ class adminProdukController extends Controller
         if(!Auth::user()->admin)
             return back();
         $produk = Produk::all();
-        return view('admin.produk.produk')->with('produk', $produk);
+        $komposisiProduk = KomposisiProduk::all();
+        $komposisi = Komposisi::all();
+        return view('admin.produk.produk')->with('produk', $produk)->with('komposisiProduk', $komposisiProduk)->with('komposisi', $komposisi);
     }
 
     /**
@@ -53,9 +58,20 @@ class adminProdukController extends Controller
         //
         $produk = new Produk;
         $produk->nama = $request->nama;
-        $produk->komposisi = $request->komposisi;
-
         $produk->save();
+
+        if($request->komposisi != null){
+            $komposisi = explode(",", $request->komposisi);
+            //  menambahkan komposisi baru jika tidak terdapat pada table
+            foreach($komposisi as $p){
+                    $kp = new KomposisiProduk;
+                    $kp->id_produk = $produk->id;
+                    $kp->id_komposisi = $p;
+                    $kp->save();
+                }
+        }
+
+
         return back();
     }
 
@@ -79,8 +95,12 @@ class adminProdukController extends Controller
     public function edit($id)
     {
         //
+
+        $komposisiProduk = KomposisiProduk::select('id_komposisi')->where('id_produk', $id)->get();
         $produk = Produk::find($id);
-        return view('admin.produk.edit')->with('produk', $produk);
+        $komposisi = Komposisi::all();
+        return view('admin.produk.edit')->with('komposisiProduk', $komposisiProduk)->with('produk', $produk)->with('komposisi', $komposisi);
+
     }
 
     /**
@@ -95,15 +115,39 @@ class adminProdukController extends Controller
         //
         $this->validate($request, [
             'nama' => ['string', 'nullable', 'max:255'],
-            'komposisi' => ['string', 'nullable', 'max:255'],
         ]);
 
 
         $produk = Produk::find($id);
         if($request->nama != null)
             $produk->nama = $request->nama;
-        if($request->komposisi != null)
-            $produk->komposisi = $request->komposisi;
+
+        if($request->komposisi != null){
+            $komposisi = explode(",", $request->komposisi);
+            //  menambahkan komposisi baru jika tidak terdapat pada table
+            foreach($komposisi as $p){
+                if(!KomposisiProduk::where('id_produk', $id)->where('id_komposisi', $p)->exists() && $komposisi != ""){
+                    $kp = new KomposisiProduk;
+                    $kp->id_produk = $id;
+                    $kp->id_komposisi = $p;
+                    $kp->save();
+                }
+            }
+             // menghapus komposisi yang tidak terdapat pada request yang baru
+            $qkomposisi = KomposisiProduk::where('id_produk', $id)->get();
+            foreach($qkomposisi as $p){
+                if(!in_array($p->id_komposisi, $komposisi)){
+                    $p->delete();
+                }
+            }
+        }
+        // jika request komposisi tidak ada, hapus semua komposisi produk
+        else{
+            $qkomposisi = KomposisiProduk::where('id_produk', $id)->get();
+            foreach($qkomposisi as $p){
+                    $p->delete();
+            }
+        }
 
         
         $produk->save();

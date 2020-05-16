@@ -50,7 +50,7 @@
       content: "Nama";
     }
     table tbody tr td:nth-child(3):before {
-      content: "Komposisi";
+      content: "komposisi";
     }
     table tbody tr td:nth-child(4):before {
       content: "Aksi";
@@ -104,8 +104,8 @@
 						<thead>
 							<tr class="table100-head">
 								<th class="column1">Id</th>
-								<th class="column2">Nama</th>
-								<th class="column3">komposisi</th>
+                <th class="column2">Nama</th>
+								<th class="column2">Komposisi</th>
 								<th class="column1">Aksi</th>
 							</tr>
 						</thead>
@@ -114,8 +114,21 @@
             @foreach($produk as $p)
             <tr>
 									<td class="column1">{{ $p->id }}</td>
-									<td class="column2">{{ $p->nama }}</td>
-									<td class="column3">{{ $p->komposisi }}</td>
+                  <td class="column2">{{ $p->nama }}</td>
+									<td class="column2">
+
+                  @foreach($komposisiProduk as $kp)
+                      @if($kp->id_produk == $p->id)
+                        @foreach($komposisi as $k)
+                          @if($kp->id_komposisi == $k->id )
+                            {{ $k->nama }},
+                          @endif
+                        @endforeach
+                      @endif
+                  @endforeach
+                  ;
+
+                  </td>
 									<td class="column1"> <a href="/admin/produk/delete/{{$p->id}}"> <span class="badge badge-danger">hapus</span></a> <a href="/admin/produk/edit/{{$p->id}}"> <span class="badge badge-warning">edit</span> </a> </td>
 						</tr>
             @endforeach

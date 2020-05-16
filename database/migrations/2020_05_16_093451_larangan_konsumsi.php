@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Produk extends Migration
+class LaranganKonsumsi extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,17 @@ class Produk extends Migration
      */
     public function up()
     {
-
-        Schema::create('produk', function (Blueprint $table) {
+        //
+        Schema::create('larangan_konsumsi', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
+            $table->integer('id_komposisi')->unsigned();
+            $table->foreign('id_komposisi')->references('id')->on('komposisi');
+            $table->integer('id_penyakit')->unsigned();
+            $table->foreign('id_penyakit')->references('id')->on('penyakit');
             $table->timestamps();
         });
+    }
+
     }
 
     /**

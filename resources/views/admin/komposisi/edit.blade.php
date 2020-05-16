@@ -103,49 +103,42 @@
     </nav>
     <div class="limiter">
 		<div class="container-table100">
-			<div class="wrap-table100">
-				<div class="table100">
-					<table>
-						<thead>
-							<tr class="table100-head">
-								<th class="column1">Id</th>
-								<th class="column2">Penyakit</th>
-								<th class="column3">Nama</th>
-								<th class="column4">Email</th>
-								<th class="column5">Admin</th>
-								<th class="column6">Aksi</th>
-							</tr>
-						</thead>
-						<tbody>
-            @foreach($users as $user)
-            <tr>
-									<td class="column1">{{ $user->id }}</td>
-									<td class="column2">
-                    @foreach($riwayat as $r)
-                      @if($r->id_user == $user->id)
-                        @foreach($penyakit as $p)
-                          @if($r->id_penyakit == $p->id )
-                            {{ $p->nama }},
-                          @endif
-                        @endforeach
-                      @endif
-                    @endforeach
-                    ;
+		<div class="wrap-table100">
+    @error('name')
+    <div style="background-color: red;color : #fff; margin-bottom: 10px;">
+                {{ $message }}
+    </div>
+    @enderror
+    @error('password')
+    <div style="background-color: red;color : #fff; margin-bottom: 10px;">
+                {{ $message }}
+    </div>
+    @enderror
+    @error('email')
+            <div style="background-color: red;color : #fff; margin-bottom: 10px;">
+                {{ $message }}
+            </div>
+    @enderror
+      <form method="POST" action="{{route('admin_edit_komposisi', $komposisi->id)}}">
+      {{ csrf_field() }}
 
-                  </td>
-									<td class="column3">{{ $user->name }}</td>
-									<td class="column4">{{ $user->email }}</td>
-									<td class="column5">{{ $user->admin }}</td>
-									<td class="column6"> <a href="/admin/user/delete/{{$user->id}}"> <span class="badge badge-danger">hapus</span></a> <a href="/admin/user/edit/{{$user->id}}"> <span class="badge badge-warning">edit</span> </a> </td>
-						</tr>
-            @endforeach
-								
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
+        <div class="form-group row">
+          <label for="inputNama3" class="col-sm-2 col-form-label">Nama</label>
+          <div class="col-sm-10">
+            <input type="text" name="nama" class="form-control" id="inputNama3" placeholder="Nama" value="{{ $komposisi->nama }}">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Edit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+    </div>
+
 
 </body>
 </html>

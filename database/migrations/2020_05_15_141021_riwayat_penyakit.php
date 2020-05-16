@@ -15,7 +15,7 @@ class RiwayatPenyakit extends Migration
     {
         //
         Schema::create('riwayat_penyakit', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users');
             $table->integer('id_penyakit')->unsigned();

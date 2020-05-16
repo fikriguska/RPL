@@ -53,6 +53,15 @@ Route::post('/admin/produk/store', 'adminProdukController@store')->name('admin_c
 Route::get('/admin/produk/create', 'adminProdukController@create');
 Route::get('/admin/produk/delete/{id}', 'adminProdukController@destroy');
 
+Route::get('/admin/komposisi', 'adminKomposisiController@index');
+Route::get('/admin/komposisi/edit/{id}', 'adminKomposisiController@edit');
+Route::post('/admin/komposisi/update/{id}', 'adminKomposisiController@update')->name('admin_edit_komposisi');
+Route::post('/admin/komposisi/store', 'adminKomposisiController@store')->name('admin_create_komposisi');
+Route::get('/admin/komposisi/create', 'adminKomposisiController@create');
+Route::get('/admin/komposisi/delete/{id}', 'adminKomposisiController@destroy');
+
+
+
 Route::get('/json_komposisi', 'komposisiController@komposisi')->name('json_komposisi');
 Route::get('/json_penyakit', 'komposisiController@penyakit')->name('json_penyakit');
 

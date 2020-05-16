@@ -47,18 +47,9 @@
       content: "Id";
     }
     table tbody tr td:nth-child(2):before {
-      content: "Penyakit";
-    }
-    table tbody tr td:nth-child(3):before {
       content: "Nama";
     }
-    table tbody tr td:nth-child(4):before {
-      content: "Email";
-    }
-    table tbody tr td:nth-child(5):before {
-      content: "Admin";
-    }
-    table tbody tr td:nth-child(6):before {
+    table tbody tr td:nth-child(3):before {
       content: "Aksi";
     }
   
@@ -104,41 +95,27 @@
     <div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
+            <div class="btn btn-success" style="margin-bottom: 10px"><a href="/admin/komposisi/create" style="text-decoration: none; color: #fff"> + Tambah</a></div> 
 				<div class="table100">
 					<table>
 						<thead>
 							<tr class="table100-head">
 								<th class="column1">Id</th>
-								<th class="column2">Penyakit</th>
-								<th class="column3">Nama</th>
-								<th class="column4">Email</th>
-								<th class="column5">Admin</th>
-								<th class="column6">Aksi</th>
+								<th class="column2">Nama</th>
+								<th class="column1">Aksi</th>
 							</tr>
 						</thead>
 						<tbody>
-            @foreach($users as $user)
+            @if(count($komposisi) > 0)
+            @foreach($komposisi as $p)
             <tr>
-									<td class="column1">{{ $user->id }}</td>
-									<td class="column2">
-                    @foreach($riwayat as $r)
-                      @if($r->id_user == $user->id)
-                        @foreach($penyakit as $p)
-                          @if($r->id_penyakit == $p->id )
-                            {{ $p->nama }},
-                          @endif
-                        @endforeach
-                      @endif
-                    @endforeach
-                    ;
-
-                  </td>
-									<td class="column3">{{ $user->name }}</td>
-									<td class="column4">{{ $user->email }}</td>
-									<td class="column5">{{ $user->admin }}</td>
-									<td class="column6"> <a href="/admin/user/delete/{{$user->id}}"> <span class="badge badge-danger">hapus</span></a> <a href="/admin/user/edit/{{$user->id}}"> <span class="badge badge-warning">edit</span> </a> </td>
+									<td class="column1">{{ $p->id }}</td>
+									<td class="column2">{{ $p->nama }}</td>
+									<td class="column1"> <a href="/admin/komposisi/delete/{{$p->id}}"> <span class="badge badge-danger">hapus</span></a> <a href="/admin/komposisi/edit/{{$p->id}}"> <span class="badge badge-warning">edit</span> </a> </td>
 						</tr>
             @endforeach
+            @else
+            @endif
 								
 						</tbody>
 					</table>

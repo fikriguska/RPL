@@ -15,7 +15,7 @@ class Saran extends Migration
     {
         //
         Schema::create('saran', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users');
             $table->string('pesan');

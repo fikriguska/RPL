@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Saran;
+use App\RiwayatPenyakit;
+use App\Penyakit;
+
+
     
 
 
@@ -32,7 +36,10 @@ class adminUserController extends Controller
         if(!Auth::user()->admin)
             return back();
         $users = User::all();
-        return view('admin.user.admin')->with('users', $users);
+        $riwayat = RiwayatPenyakit::all();
+        $penyakit = Penyakit::all();
+
+        return view('admin.user.admin')->with('users', $users)->with('riwayat', $riwayat)->with('penyakit', $penyakit);
     }
 
     /**
@@ -76,8 +83,11 @@ class adminUserController extends Controller
     public function edit($id)
     {
         //
+        $riwayat = RiwayatPenyakit::select('id_penyakit')->where('id_user', $id)->get();
+        $penyakit = Penyakit::all();
+
         $user = User::find($id);
-        return view('admin.user.edit')->with('user', $user);
+        return view('admin.user.edit')->with('user', $user)->with('riwayat', $riwayat)->with('penyakit', $penyakit);
     }
 
     /**
@@ -108,6 +118,32 @@ class adminUserController extends Controller
         if($request->admin != null)
             $user->admin = $request->admin;
 
+            if($request->penyakit != null){
+                $penyakit = explode(",", $request->penyakit);
+                //  menambahkan penyakit baru jika tidak terdapat pada table
+                foreach($penyakit as $p){
+                    if(!RiwayatPenyakit::where('id_user', $id)->where('id_penyakit', $p)->exists() && $penyakit != ""){
+                        $riwayat = new RiwayatPenyakit;
+                        $riwayat->id_user = $id;
+                        $riwayat->id_penyakit = $p;
+                        $riwayat->save();
+                    }
+                }
+                 // menghapus penyakit yang tidak terdapat pada request yang baru
+                $qpenyakit = RiwayatPenyakit::where('id_user', $id)->get();
+                foreach($qpenyakit as $p){
+                    if(!in_array($p->id_penyakit, $penyakit)){
+                        $p->delete();
+                    }
+                }
+            }
+            // jika request penyakit tidak ada, hapus semua riwayat user 
+            else{
+                $qpenyakit = RiwayatPenyakit::where('id_user', $id)->get();
+                foreach($qpenyakit as $p){
+                        $p->delete();
+                }
+            }
         
         $user->save();
 
@@ -130,3 +166,5 @@ class adminUserController extends Controller
         return back();
     }
 }
+
+
