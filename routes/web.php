@@ -34,8 +34,16 @@ Route::get('/profile/edit', 'profileController@edit');
 // Route::get('/profile/edit', ['uses' => 'profileController@edit'])->name('edit_profile');
 Route::post('/profile/update/{id}',  'profileController@update')->name('edit_profile');
 
-Route::resource('produk', 'produkController');
+// Route::resource('produk', 'produkController');
+
 Route::post('/create-saran', 'saranController@store')->name('create_saran');
+
+Route::get('/produk', 'produkController@index');
+Route::get('/produk/{id}', 'produkController@show');
+
+Route::get('/consumable', 'produkController@consumable');
+Route::get('/not-consumable', 'produkController@notConsumable');
+
 
 // ADMIN CONTROLLER
 Route::get('/admin/user', 'adminUserController@index')->name('admin');

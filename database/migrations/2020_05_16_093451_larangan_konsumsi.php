@@ -22,7 +22,7 @@ class LaranganKonsumsi extends Migration
             $table->foreign('id_penyakit')->references('id')->on('penyakit');
             $table->timestamps();
         });
-    }
+
 
     }
 

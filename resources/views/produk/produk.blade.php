@@ -24,7 +24,11 @@
 	</div>
 
 <div class="prod-header">
-	<h2>Product List :</h2>
+  @if($consumable)
+      <h2>Consumable Product :</h2>    		 
+  @else
+      <h2>Not Consumable Product :</h2>    		 
+  @endif
 </div>
 
 <div class="prod-box">
@@ -48,10 +52,11 @@
     <li><a href="#"><img src="http://placehold.it/150x150" /></a></li> -->
     @if(count($produk) > 0)
     @foreach($produk as $p)
+        
         <li><a href="/produk/{{$p->id}}"><img src="http://placehold.it/150x150" /></a></li>
     @endforeach
     @else
-        <h2> Daftar Produk Kosong? Hubungi Admin! </h2>
+        <!-- <h2> Di dalam daftar ini tidak boleh ada yang kamu makan :) cepet sembuh :v ! </h2> -->
     @endif
     
     </div>
@@ -61,7 +66,15 @@
 
 <section class="effect-1">
 	<ul>
-		 <li class="rv-bg"><a href="#"><span data-hover="Consumable">Consumable</span></a></li>
+        @if($consumable)
+    		 <li class="rv-bg"><a href="/not-consumable" ><span data-hover="Not&nbsp;Consumable">
+          Not Consumable
+        @else
+    		 <li class="rv-bg"><a href="/consumable"><span data-hover="Consumable">
+
+          Consumable
+        @endif
+      </span></a></li>
 	</ul>
 </section>
 
