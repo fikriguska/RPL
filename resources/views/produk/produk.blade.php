@@ -13,15 +13,17 @@
 <div class="main">
 		
 	<div class="btn-group">
-		<button type="button" class="btn btn-default">Home</button>
-		<button type="button" class="btn btn-default">Saran</button>
-		<button type="button" class="btn btn-default"><i class="far fa-user"></i>Profile</button>
+		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/Home">Home</a></button>
+		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/saran">Saran</a></button>
+		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/profile"><i class="far fa-user"></i>Profile</a></button>
 	</div>
-
-	<div class="search-box">
-		<input class="search-txt" type="text" name="" placeholder="Search">
-		<a class="search-btn" href="#"><i class="fas fa-search"></i></a>
-	</div>
+  <form action="/produk" method="get">
+	  <div class="search-box">
+	  	<input class="search-txt" type="text" name="cari" placeholder="Search">
+	  	<button  type="submit"  placeholder="" style=" background-color: Transparent;outline:none;"> <a class="search-btn" href="#"><i class="fas fa-search"></i></a> </button>
+	  	
+    </div>
+  </form>
 
 <div class="prod-header">
   @if($consumable)
@@ -56,7 +58,7 @@
         <li><a href="/produk/{{$p->id}}"><img src="http://placehold.it/150x150" /></a></li>
     @endforeach
     @else
-        <!-- <h2> Di dalam daftar ini tidak boleh ada yang kamu makan :) cepet sembuh :v ! </h2> -->
+        <h4 style="color:#fff"> produk tidak ditemukan </h4>
     @endif
     
     </div>
