@@ -4,7 +4,8 @@
 <head>
 	<title>Login and Sign Up Page</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/login.css') }}">
-	<script src="https://kit.fontawesome.com/4814c1385c.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/js/fontawesome.kit.js') }}"></script>
+
 </head>
 <body>
 	<div class="logo">

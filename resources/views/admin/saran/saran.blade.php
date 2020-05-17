@@ -90,7 +90,10 @@
           <a class="nav-item nav-link" href="/admin/user">User</a>
           <a class="nav-item nav-link active" href="/admin/saran">Saran</a>
           <a class="nav-item nav-link" href="/admin/produk">Produk</a>
-          <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a class="nav-item nav-link" href="/admin/komposisi">Komposisi</a>
+          <a class="nav-item nav-link" href="/admin/penyakit">Penyakit</a>
+          <a class="nav-item nav-link" href="/admin/larangan">Larangan</a>
+
         </div>
       </div>
     </nav>

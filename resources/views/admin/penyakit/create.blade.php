@@ -3,15 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('assets/css/typeahead.css') }}">
-  	<script src="{{ asset('assets/js/tagsinput.js') }}"></script>
-    <script src="{{ asset('assets/js/typeahead.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/util.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css')}}">
 
@@ -101,11 +94,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/admin/user">User</a>
+          <a class="nav-item nav-link active" href="/admin/user">User</a>
           <a class="nav-item nav-link" href="/admin/saran">Saran</a>
-          <a class="nav-item nav-link active" href="/admin/produk">Produk</a>
+          <a class="nav-item nav-link" href="/admin/produk">Produk</a>
           <a class="nav-item nav-link" href="/admin/komposisi">Komposisi</a>
-          <a class="nav-item nav-link" href="/admin/penyakit">Penyakit</a>
+          <a class="nav-item nav-link active" href="/admin/penyakit">Penyakit</a>
           <a class="nav-item nav-link" href="/admin/larangan">Larangan</a>
 
         </div>
@@ -129,51 +122,19 @@
                 {{ $message }}
             </div>
     @enderror
-      <form method="POST" action="{{route('admin_edit_produk', $produk->id)}}">
+      <form method="POST" action="{{route('admin_create_penyakit')}}">
       {{ csrf_field() }}
 
         <div class="form-group row">
           <label for="inputNama3" class="col-sm-2 col-form-label">Nama</label>
           <div class="col-sm-10">
-            <input type="text" name="nama" class="form-control" id="inputNama3" placeholder="Nama" value="{{ $produk->nama }}">
+            <input type="text" name="nama" class="form-control" id="inputNama3" placeholder="Nama" >
           </div>
         </div>
-        <div class="form-group">
-            <label for="inputNama3" class="col-sm-2 col-form-label">Komposisi</label>
-						<input type="text" id="tagstype" name="komposisi" style="width:400px;">
-				</div>
-					<script>
-					        var cities = new Bloodhound({
-					          datumTokenizer: Bloodhound.tokenizers.obj.whitespace('nama'),
-					          queryTokenizer: Bloodhound.tokenizers.whitespace,
-					          prefetch: '{{ route("json_komposisi") }}'
-					          // prefetch: '{{ asset("assets/json/cities.json") }}'
-					        });
-					        cities.initialize();
-						
-					        var elt = $('#tagstype');
-					        elt.tagsinput({
-					          itemValue: 'id',
-					          itemText: 'nama',
-					          typeaheadjs: {
-					            name: 'cities',
-					            displayKey: 'nama',
-					            source: cities.ttAdapter()
-					          }
-					        });
-							<?php
-								foreach($komposisiProduk as $kp){
-                  foreach($komposisi as $k){
-                    if($kp->id_komposisi == $k->id)
-                      echo "elt.tagsinput('add', { 'id': $k->id, 'nama': '".$k->nama."' });";
-                  }
-								}
-							?>
-					</script>
 
         <div class="form-group row">
           <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary">Edit</button>
+            <button type="submit" class="btn btn-primary">Tambah</button>
           </div>
         </div>
       </form>

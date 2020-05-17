@@ -13,6 +13,12 @@
 					<img src="{{asset('assets/img/logo.png')}}" alt="logo">
 				</div>
 				<ul>
+					@if(Auth::user()!==null)
+						@if(Auth::user()->admin)
+						<li><a href="/admin/user">Admin</a></li>
+						@endif
+					@endif
+
 					<li class="active"><a href="/">Home</a></li>
                     @guest
                     <li><a href="{{ route('login') }}">Log in</a></li>
@@ -20,6 +26,7 @@
                     <li><a href="{{ route('register')}}">Sign Up</a></li>
                     @endif
                     @else
+                    <li><a href="/produk">Produk</a></li>
                     <li><a href="/saran">Saran</a></li>
                     <li><a href="/profile">profile</a></li>
                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a></li>

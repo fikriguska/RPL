@@ -106,7 +106,7 @@
           <a class="nav-item nav-link active" href="/admin/produk">Produk</a>
           <a class="nav-item nav-link" href="/admin/komposisi">Komposisi</a>
           <a class="nav-item nav-link" href="/admin/penyakit">Penyakit</a>
-          <a class="nav-item nav-link" href="/admin/larangan">Larangan</a>
+          <a class="nav-item nav-link active" href="/admin/larangan">Larangan</a>
 
         </div>
       </div>
@@ -129,47 +129,30 @@
                 {{ $message }}
             </div>
     @enderror
-      <form method="POST" action="{{route('admin_edit_produk', $produk->id)}}">
+      <form method="POST" action="{{route('admin_create_larangan')}}">
       {{ csrf_field() }}
 
-        <div class="form-group row">
-          <label for="inputNama3" class="col-sm-2 col-form-label">Nama</label>
-          <div class="col-sm-10">
-            <input type="text" name="nama" class="form-control" id="inputNama3" placeholder="Nama" value="{{ $produk->nama }}">
-          </div>
-        </div>
+        <div class="form-group">
+            <label for="inputNama3" class="col-sm-2 col-form-label">Penyakit</label>
+			<select class="browser-default custom-select custom-select-lg mb-3" name="penyakit">
+              <option selected>Penyakit</option>
+                  @foreach($penyakit as $p)
+                      <option value="{{$p->id}}"> {{ $p->id }} - {{ $p->nama }}</option>
+                  @endforeach
+            </select>
+
+		</div>
+
         <div class="form-group">
             <label for="inputNama3" class="col-sm-2 col-form-label">Komposisi</label>
-						<input type="text" id="tagstype" name="komposisi" style="width:400px;">
-				</div>
-					<script>
-					        var cities = new Bloodhound({
-					          datumTokenizer: Bloodhound.tokenizers.obj.whitespace('nama'),
-					          queryTokenizer: Bloodhound.tokenizers.whitespace,
-					          prefetch: '{{ route("json_komposisi") }}'
-					          // prefetch: '{{ asset("assets/json/cities.json") }}'
-					        });
-					        cities.initialize();
-						
-					        var elt = $('#tagstype');
-					        elt.tagsinput({
-					          itemValue: 'id',
-					          itemText: 'nama',
-					          typeaheadjs: {
-					            name: 'cities',
-					            displayKey: 'nama',
-					            source: cities.ttAdapter()
-					          }
-					        });
-							<?php
-								foreach($komposisiProduk as $kp){
-                  foreach($komposisi as $k){
-                    if($kp->id_komposisi == $k->id)
-                      echo "elt.tagsinput('add', { 'id': $k->id, 'nama': '".$k->nama."' });";
-                  }
-								}
-							?>
-					</script>
+			<select class="browser-default custom-select custom-select-lg mb-3" name="komposisi">
+              <option selected>Komposisi</option>
+                  @foreach($komposisi as $k)
+                      <option value="{{$k->id}}"> {{ $k->id }} - {{ $k->nama }}</option>
+                  @endforeach
+            </select>
+
+		</div>
 
         <div class="form-group row">
           <div class="col-sm-10">

@@ -42,7 +42,7 @@ class produkController extends Controller
             $produk = Produk::where('nama','like','%'.$request->cari.'%')->get();
         else
             $produk = Produk::all();
-        return view('produk.produk')->with('produk', $produk)->with('consumable', 0)->with('query', $query);
+        return view('produk.produk')->with('produk', $produk)->with('consumable', 2)->with('query', $query);
 
     }
     public function consumable(Request $request){

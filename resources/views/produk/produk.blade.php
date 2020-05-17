@@ -14,7 +14,14 @@
 <div class="main">
 		
 	<div class="btn-group">
-		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/Home">Home</a></button>
+      @if(Auth::user()!==null)
+						@if(Auth::user()->admin)
+        		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/admin/user">admin</a></button>
+
+						@endif
+			@endif
+		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/">Home</a></button>
+		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/produk">Produk</a></button>
 		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/saran">Saran</a></button>
 		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/profile"><i class="far fa-user"></i>Profile</a></button>
 	</div>
@@ -27,12 +34,30 @@
   </form>
 
 <div class="prod-header">
-  @if($consumable)
-      <h2>Consumable Product :</h2>    		 
-  @else
-      <h2>Not Consumable Product :</h2>    		 
-  @endif
+
+  <?php
+          if($query != ''){
+            $data = explode('=', $query);
+            echo "cari: $data[1]";
+          }
+  ?>
+  <?php
+      if($consumable == 2){
+        echo "<h2>Products: </h2>";
+      }
+      elseif($consumable == 1){
+        echo "<h2>Consumable Products: </h2>";
+      }
+      else{
+        echo "<h2>Not-Consumable Products: </h2>";
+
+      }
+
+  ?>
+  
 </div>
+
+
 
 <div class="prod-box">
 	<div class="prod-img">
@@ -69,24 +94,41 @@
 
 <section class="effect-1">
 	<ul>
-        @if($consumable)
-          @if($query != '')
-      		  <li class="rv-bg"><a href="/not-consumable?{{$query}}"><span data-hover="Consumable">
-          @else
-      		  <li class="rv-bg"><a href="/not-consumable"><span data-hover="Consumable">
-          @endif
+  <!-- {{ var_dump($query == 'cari=sds') }} -->
+        <?php
+          if($consumable == 2){
+            if($query != ''){
+              echo "<li class='rv-bg'><a href='/consumable?$query'><span data-hover='Consumable'>
+              Consumable";
+              echo "<li class='rv-bg'><a href='/not-consumable?$query'><span data-hover='Not&nbsp;Consumable'>
+              Not Consumable";
+            }
+            else{
+              echo '<li class="rv-bg"><a href="/consumable"><span data-hover="Consumable">
+              Consumable';
+              echo '<li class="rv-bg"><a href="/not-consumable"><span data-hover="Not&nbsp;Consumable">
+              Not Consumable';
+            }
 
-          Not Consumable
-        @else
-          @if($query != '')
-      		  <li class="rv-bg"><a href="/consumable?{{$query}}"><span data-hover="Consumable">
-          @else
-      		  <li class="rv-bg"><a href="/consumable"><span data-hover="Consumable">
-          @endif
+          }
+          elseif($consumable == 1){
+            if($query != '')
+      	  	  echo "<li class='rv-bg'><a href='/not-consumable?$query'><span data-hover='Not&nbsp;Consumable'>";
+            else
+              echo '<li class="rv-bg"><a href="/not-consumable"><span data-hover="Not&nbsp;Consumable">';
+            echo 'Not Consumable';
+          }
+          else{
+            if($query != '')
+              echo "<li class='rv-bg'><a href='/consumable?$query'><span data-hover='Consumable'>";
+            else
+              echo '<li class="rv-bg"><a href="/consumable"><span data-hover="Consumable">';
+            echo 'Consumable';
 
-
-          Consumable
-        @endif
+          }
+        ?>
+        
+        
       </span></a></li>
 	</ul>
 </section>

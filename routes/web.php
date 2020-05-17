@@ -68,6 +68,19 @@ Route::post('/admin/komposisi/store', 'adminKomposisiController@store')->name('a
 Route::get('/admin/komposisi/create', 'adminKomposisiController@create');
 Route::get('/admin/komposisi/delete/{id}', 'adminKomposisiController@destroy');
 
+Route::get('/admin/penyakit', 'adminPenyakitController@index');
+Route::get('/admin/penyakit/edit/{id}', 'adminPenyakitController@edit');
+Route::post('/admin/penyakit/update/{id}', 'adminPenyakitController@update')->name('admin_edit_penyakit');
+Route::post('/admin/penyakit/store', 'adminPenyakitController@store')->name('admin_create_penyakit');
+Route::get('/admin/penyakit/create', 'adminPenyakitController@create');
+Route::get('/admin/penyakit/delete/{id}', 'adminPenyakitController@destroy');
+
+Route::get('/admin/larangan', 'adminLaranganController@index');
+Route::get('/admin/larangan/edit/{id}', 'adminLaranganController@edit');
+Route::post('/admin/larangan/update/{id}', 'adminLaranganController@update')->name('admin_edit_larangan');
+Route::post('/admin/larangan/store', 'adminLaranganController@store')->name('admin_create_larangan');
+Route::get('/admin/larangan/create', 'adminLaranganController@create');
+Route::get('/admin/larangan/delete/{id}', 'adminLaranganController@destroy');
 
 
 Route::get('/json_komposisi', 'komposisiController@komposisi')->name('json_komposisi');

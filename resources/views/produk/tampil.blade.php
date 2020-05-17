@@ -15,7 +15,7 @@
 <div class="main">
 		
 	<div class="btn-group">
-		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/Home">Home</a></button>
+		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/">Home</a></button>
 		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/saran">Saran</a></button>
 		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/profile"><i class="far fa-user"></i>Profile</a></button>
 	</div>

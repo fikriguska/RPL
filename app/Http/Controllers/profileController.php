@@ -30,7 +30,10 @@ class profileController extends Controller
     public function index()
     {
         //
-        return view('profile.profile');
+        $penyakit = Penyakit::all();
+        $riwayat = RiwayatPenyakit::select('id_penyakit')->where('id_user', Auth::user()->id)->get();
+
+        return view('profile.profile')->with('riwayat', $riwayat)->with('penyakit', $penyakit);
     }
 
     /**

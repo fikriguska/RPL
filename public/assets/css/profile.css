@@ -70,11 +70,14 @@ h4{
 	border: 3px solid white;
 	border-radius: 5px;
 	width: 50%;
-	height: 20px;
 	border-color: #fff;
 	background-color: white;
 	color: #aaa;
 	margin-left: 20px;
+}
+
+h4 .penyakit{
+	height: 100px;
 }
 
 

@@ -47,18 +47,9 @@
       content: "Id";
     }
     table tbody tr td:nth-child(2):before {
-      content: "Penyakit";
-    }
-    table tbody tr td:nth-child(3):before {
       content: "Nama";
     }
-    table tbody tr td:nth-child(4):before {
-      content: "Email";
-    }
-    table tbody tr td:nth-child(5):before {
-      content: "Admin";
-    }
-    table tbody tr td:nth-child(6):before {
+    table tbody tr td:nth-child(3):before {
       content: "Aksi";
     }
   
@@ -97,8 +88,8 @@
           <a class="nav-item nav-link" href="/admin/user">User</a>
           <a class="nav-item nav-link" href="/admin/saran">Saran</a>
           <a class="nav-item nav-link" href="/admin/produk">Produk</a>
-          <a class="nav-item nav-link active" href="/admin/komposisi">Komposisi</a>
-          <a class="nav-item nav-link" href="/admin/penyakit">Penyakit</a>
+          <a class="nav-item nav-link" href="/admin/komposisi">Komposisi</a>
+          <a class="nav-item nav-link active" href="/admin/penyakit">Penyakit</a>
           <a class="nav-item nav-link" href="/admin/larangan">Larangan</a>
 
         </div>
@@ -106,42 +97,35 @@
     </nav>
     <div class="limiter">
 		<div class="container-table100">
-		<div class="wrap-table100">
-    @error('name')
-    <div style="background-color: red;color : #fff; margin-bottom: 10px;">
-                {{ $message }}
-    </div>
-    @enderror
-    @error('password')
-    <div style="background-color: red;color : #fff; margin-bottom: 10px;">
-                {{ $message }}
-    </div>
-    @enderror
-    @error('email')
-            <div style="background-color: red;color : #fff; margin-bottom: 10px;">
-                {{ $message }}
-            </div>
-    @enderror
-      <form method="POST" action="{{route('admin_edit_komposisi', $komposisi->id)}}">
-      {{ csrf_field() }}
-
-        <div class="form-group row">
-          <label for="inputNama3" class="col-sm-2 col-form-label">Nama</label>
-          <div class="col-sm-10">
-            <input type="text" name="nama" class="form-control" id="inputNama3" placeholder="Nama" value="{{ $komposisi->nama }}">
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary">Edit</button>
-          </div>
-        </div>
-      </form>
-    </div>
-    </div>
-    </div>
-
+			<div class="wrap-table100">
+            <div class="btn btn-success" style="margin-bottom: 10px"><a href="/admin/penyakit/create" style="text-decoration: none; color: #fff"> + Tambah</a></div> 
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Id</th>
+								<th class="column2">Nama</th>
+								<th class="column1">Aksi</th>
+							</tr>
+						</thead>
+						<tbody>
+            @if(count($penyakit) > 0)
+            @foreach($penyakit as $p)
+            <tr>
+									<td class="column1">{{ $p->id }}</td>
+									<td class="column2">{{ $p->nama }}</td>
+									<td class="column1"> <a href="/admin/penyakit/delete/{{$p->id}}"> <span class="badge badge-danger">hapus</span></a> <a href="/admin/penyakit/edit/{{$p->id}}"> <span class="badge badge-warning">edit</span> </a> </td>
+						</tr>
+            @endforeach
+            @else
+            @endif
+								
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>
