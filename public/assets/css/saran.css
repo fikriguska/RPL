@@ -2,12 +2,61 @@ body{
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
-	background-image: url(../frame.jpg);
+    background: url(/assets/img/frame.jpg) no-repeat;
 	height: 100vh;
 	background-size: cover;
 	background position: center;
 }
 
+.main{
+	max-width: 1300px;
+	margin: auto;
+
+	
+}
+.search-box{
+	float: right;
+	background: #fff;
+	border-radius: 7px;
+	margin-top: 18.5px;
+	margin-right: 25px;
+	padding: 3px;
+}
+
+.search-box:hover > .search-txt{
+	width: 240px;
+	padding: 0.6px;
+}
+
+.search-box:hover > .search-btn{
+	background: #fff;
+}
+
+.search-btn{
+	color: #BE4868;
+	background-color: #fff;
+	border-radius: 5px;
+	transition: 0.4s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px;
+
+}
+
+.search-txt{
+	border :none;
+	background: #fff;
+	outline: none;
+	float: left;
+	transition: 0.4s;
+	line-height: 10px;
+	font-size: 16px;
+	width: 0px;
+	margin-top: 3px;
+	margin-left: 2px;
+
+}
 .logo img{
 	float: left;
 	width: 192px;
@@ -24,6 +73,20 @@ body{
 	display: inline-block;
 }
 
+ul{
+	float: right;
+	list-style: none;
+	margin-top: 25px;
+	margin-right: 25px;
+
+
+}
+
+ul li{
+	display: inline-block;
+
+}
+
 ul li a{
 	text-decoration: none;
 	color: #BE4868;
@@ -32,12 +95,11 @@ ul li a{
 	border-radius: 7px;
 	transition: 0.6s ease;
 	background-color: #fff;
-	margin-right: 10px;
 
 }
 
 ul li a i{
-	margin-right: 10px;
+	margin-right: 5px;
 }
 
 ul li a:hover{
@@ -90,4 +152,3 @@ textarea{
 	background-color: #BE4868;
 	color: white;
 }
-

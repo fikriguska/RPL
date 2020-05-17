@@ -1,26 +1,27 @@
 *{
 	margin: 0;
 	padding: 0;
-	font-family: Century Gothic;
+	font-family: sans-serif;
 
 }
+
 header{
-	background-image: url(/assets/img/frame.jpg);
-	/* background-color: pink; sementara */
+    background: url(/assets/img/frame.jpg) no-repeat;
 	height: 100vh;
 	background-size: cover;
 	background position: center;
+
+
+
 }
 
 .search-box{
 	float: right;
 	background: #fff;
 	border-radius: 7px;
-	list-style: none;
-	margin-top: 20px;
+	margin-top: 18.5px;
 	margin-right: 25px;
-	padding: 5px;
-	
+	padding: 3px;
 }
 
 .search-box:hover > .search-txt{
@@ -53,6 +54,9 @@ header{
 	line-height: 10px;
 	font-size: 16px;
 	width: 0px;
+	margin-top: 3px;
+	margin-left: 2px;
+
 }
 
 ul{
@@ -60,40 +64,53 @@ ul{
 	list-style: none;
 	margin-top: 25px;
 	margin-right: 25px;
+
+
 }
 
 ul li{
 	display: inline-block;
+
 }
 
 ul li a{
 	text-decoration: none;
 	color: #BE4868;
 	padding: 5px 20px;
-	border: 1px solid #fff;
+	border: 2px solid #fff;
 	border-radius: 7px;
 	transition: 0.6s ease;
 	background-color: #fff;
+
+}
+
+ul li a i{
+	margin-right: 5px;
 }
 
 ul li a:hover{
-	background-color: #fff;
-	color: #BE4868;
+	background-color: #BE4868;
+	color: #fff;
 }
 ul li.active a{
-	background-color: #fff;
-	color: #BE4868;
+	background-color: #BE4868;
+	color: #fff;
 }
 .logo img{
 	float: left;
-	width: 150px;
+	width: 192px;
 	height: auto;
 	margin-top: 8px;
+		
+
+
 }
 
 .main{
 	max-width: 1300px;
-	margin: auto;	
+	margin: auto;
+
+	
 }
 
 .title{
@@ -101,13 +118,36 @@ ul li.active a{
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
+	background: #F392A0;
+	box-sizing: border-box;
+	border-radius: 10px;
+	width: 50%;
+	height: 50%;
+	margin-top: 50px;
+
+
+	
+
 }
 
 .title h1{
 	color: #BE4868;
-	font-size: 70px;
+	font-size: 50px;
+	
+	margin-left: 20px;
+
+
 }
 
 .title p{
 	color:  #BE4868;
+	margin-top: 30px;
+	margin-left: 20px;
+
+}
+
+.title img{
+	height: 95px;
+	margin-left: 20px;
+	margin-top: 20px;
 }

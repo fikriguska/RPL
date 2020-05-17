@@ -31,14 +31,28 @@ class produkController extends Controller
     public function index(Request $request)
     {
         //
+        $parsed_url = parse_url($request->fullUrl());
+        $query = "";
+        if(isset($parsed_url['query'])){
+            $query = $parsed_url['query'];
+        }
+        
+
         if($request != [])
             $produk = Produk::where('nama','like','%'.$request->cari.'%')->get();
         else
             $produk = Produk::all();
-        return view('produk.produk')->with('produk', $produk)->with('consumable', 0);
+        return view('produk.produk')->with('produk', $produk)->with('consumable', 0)->with('query', $query);
 
     }
-    public function consumable(){
+    public function consumable(Request $request){
+
+        $parsed_url = parse_url($request->fullUrl());
+        $query = "";
+        if(isset($parsed_url['query'])){
+            $query = $parsed_url['query'];
+        }
+
         $arr = [];
         $riwayatPenyakit = RiwayatPenyakit::select('id_penyakit')->where('id_user', Auth::user()->id)->get();
         foreach($riwayatPenyakit as $rp){
@@ -57,11 +71,23 @@ class produkController extends Controller
                 array_push($larang, $p->id_produk);
             }
         }
-        $produk = Produk::whereNotIn('id', $larang)->get();
-        return view('produk.produk')->with('produk', $produk)->with('riwayatPenyakit', $riwayatPenyakit)->with('laranganKonsumsi', $laranganKonsumsi)->with('consumable', 1);
+        if($request != [])
+            $produk = Produk::whereNotIn('id', $larang)->where('nama','like','%'.$request->cari.'%')->get();
+        else
+            $produk = Produk::whereNotIn('id', $larang)->get();
+            
+        return view('produk.produk')->with('produk', $produk)->with('riwayatPenyakit', $riwayatPenyakit)->with('laranganKonsumsi', $laranganKonsumsi)->with('consumable', 1)->with('query', $query);
     }
 
-    public function notConsumable(){
+    public function notConsumable(Request $request){
+
+
+        $parsed_url = parse_url($request->fullUrl());
+        $query = "";
+        if(isset($parsed_url['query'])){
+            $query = $parsed_url['query'];
+        }
+
         $arr = [];
         $riwayatPenyakit = RiwayatPenyakit::select('id_penyakit')->where('id_user', Auth::user()->id)->get();
         foreach($riwayatPenyakit as $rp){
@@ -81,8 +107,12 @@ class produkController extends Controller
                 array_push($larang, $p->id_produk);
             }
         }
-        $produk = Produk::whereIn('id', $larang)->get();
-        return view('produk.produk')->with('produk', $produk)->with('riwayatPenyakit', $riwayatPenyakit)->with('laranganKonsumsi', $laranganKonsumsi)->with('consumable', 0);
+        if($request != [])
+            $produk = Produk::whereIn('id', $larang)->where('nama','like','%'.$request->cari.'%')->get();
+        else
+            $produk = Produk::whereIn('id', $larang)->get();
+
+        return view('produk.produk')->with('produk', $produk)->with('riwayatPenyakit', $riwayatPenyakit)->with('laranganKonsumsi', $laranganKonsumsi)->with('consumable', 0)->with('query', $query);
     }
 
     public function cari(Request $request){

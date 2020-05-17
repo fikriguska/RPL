@@ -2,7 +2,8 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/product.css')}}">
-	<script src="https://kit.fontawesome.com/4814c1385c.js" crossorigin="anonymous"></script>
+  <script src="{{ asset('assets/js/fontawesome.kit.js') }}"></script>
+
 	<title>Product Page</title>
 </head>
 <body>
@@ -69,10 +70,20 @@
 <section class="effect-1">
 	<ul>
         @if($consumable)
-    		 <li class="rv-bg"><a href="/not-consumable" ><span data-hover="Not&nbsp;Consumable">
+          @if($query != '')
+      		  <li class="rv-bg"><a href="/not-consumable?{{$query}}"><span data-hover="Consumable">
+          @else
+      		  <li class="rv-bg"><a href="/not-consumable"><span data-hover="Consumable">
+          @endif
+
           Not Consumable
         @else
-    		 <li class="rv-bg"><a href="/consumable"><span data-hover="Consumable">
+          @if($query != '')
+      		  <li class="rv-bg"><a href="/consumable?{{$query}}"><span data-hover="Consumable">
+          @else
+      		  <li class="rv-bg"><a href="/consumable"><span data-hover="Consumable">
+          @endif
+
 
           Consumable
         @endif
