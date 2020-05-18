@@ -33,11 +33,11 @@ Program ini berfungsi menyimpan data produk makanan kemasan beserta komposisi pr
 
 2. Aplikasi untuk Masyarakat\
 Fitur-fitur yang ada pada aplikasi ini yaitu:
-- Data riwayat penyakit: untuk mengetahui penyakit dan alergi pengguna sebagai acuan panduan konsumsi produk makanan kemasan.
-- Pindai barcode produk makanan kemasan: untuk mengetahui informasi komposisi produk makanannya.
-- Ulasan: untuk memberi rekomendasi terhadap produk makanan kemasan yang cocok atau tidak bagi pengguna lain berdasarkan data riwayat penyakitnya.
-- Jual beli produk makanan sehat: menyediakan produk makanan sehat buatan industri rumahan yang terjamin sehat.
-- Pembayaran online: untuk fitur jual beli produk makanan kemasan sehingga dapat dikirim ke alamat yang dituju.
+    - Data riwayat penyakit: untuk mengetahui penyakit dan alergi pengguna sebagai acuan panduan konsumsi produk makanan kemasan.
+    - Pindai barcode produk makanan kemasan: untuk mengetahui informasi komposisi produk makanannya.
+    - Ulasan: untuk memberi rekomendasi terhadap produk makanan kemasan yang cocok atau tidak bagi pengguna lain berdasarkan data riwayat penyakitnya.
+    - Jual beli produk makanan sehat: menyediakan produk makanan sehat buatan industri rumahan yang terjamin sehat.
+    - Pembayaran online: untuk fitur jual beli produk makanan kemasan sehingga dapat dikirim ke alamat yang dituju.
 
 ## Deskripsi Perangkat Lunak
 
