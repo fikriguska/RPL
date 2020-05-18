@@ -2,6 +2,8 @@
 
 # Minefood
 
+**Aplikasi Panduan Konsumsi Produk Makanan**
+
 **Mata Kuliah :**\
 Rekayasa Perangkat Lunak
 
@@ -14,6 +16,7 @@ Rekayasa Perangkat Lunak
 2. Putri Melanita Londong Bua (G64180053)
 3. Ananda Alfarishi Anwar (G64180097)
 
+---
 
 ## Latar Belakang
 
@@ -67,7 +70,7 @@ Fitur pertama yang digunakan saat memulai aplikasi ini adalah memasukkan data ri
 
 ## Entity Relationship Diagram
 
-
+<p align="center"><img src="erdiagram.png" width="600"></p>
 
 ## Hasil Implementasi Perangkat Lunak
 
