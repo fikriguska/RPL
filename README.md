@@ -87,8 +87,8 @@ User|Saya ingin mencari saran larangan konsumsi berdasarkan nama penyakit|Saya b
 
 1. Fitur Daftar Penyakit dan Alergi
 
-**Nama Use Case**|**Memasukkan data penyakit dan alergi**
------------------|---------------------------------------
+**Nama Use Case**|**Menambahkan data penyakit dan alergi**
+:----------------|:---------------------------------------
 Aktor|User
 Deskripsi|Menjelaskan proses input data penyakit dan alergi
 *Successful Completion*|<ol><li>User memasukkan data penyakit dan alergi</li><li>Sistem mencari larangan konsumsi berdasarkan penyakit dan alergi User</li><li>Sistem mengirimkan daftar larangan konsumsi kepada User</li></ol>
@@ -100,7 +100,7 @@ Asumsi|User kesulitan mencari larangan konsumsi berdasarkan penyakit dan alergin
 2. Fitur Daftar Produk Makanan
 
 **Nama Use Case**|**Mencari produk makanan**
------------------|---------------------------------------
+:----------------|:-------------------------
 Aktor|User
 Deskripsi|Menjelaskan proses pencarian produk makanan
 *Successful Completion*|<ol><li>User memasukkan kata kunci nama produk makanan</li><li>Sistem mencari nama produk makanan apakah produk tersebut masuk ke dalam data Minefood</li><li>Jika masuk, sistem akan mencari komposisi produk makanan</li></ol>
@@ -111,11 +111,28 @@ Asumsi|User ingin mencari produk
 
 3. Fitur Daftar Komposisi Produk Makanan
 
-<p><img src="usecasedesc_komposisi.png"></p>
+**Nama Use Case**|**Mencari komposisi produk makanan**
+:----------------|:-----------------------------------
+Aktor|User
+Deskripsi|Menjelaskan proses pencarian komposisi produk makanan
+*Successful Completion*|<ol><li>User memilih produk yang diinginkan</li><li>Sistem menampilkan komposisi produk yang dipilih</li><li>Sistem menampilkan pesan apakah produk baik dikonsumsi oleh user atau tidak</li></ol>
+Alternatif|<ol><li>User tidak menemukan produk</li><li>Sistem menampilkan pesan bahwa produk tidak ditemukan</li></ol>
+*Precondition*|Sistem hanya menampilkan produk
+*Postcondition*|Sistem menampilkan komposisi produk
+Asumsi|Produk yang dicari oleh user ada
 
 4. Fitur Saran
 
-<p><img src="usecasedesc_saran.png"></p>
+**Nama Use Case**|**Memberikan saran**
+:----------------|:-------------------
+Aktor|User
+Deskripsi|Menampung saran dari user untuk menambahkan hasil solusi
+*Successful Completion*|<ol><li>User ingin menambahkan solusi lain</li></ol>
+Alternatif|<ol><li>Tidak ada saran dari user</li></ol>
+*Precondition*|Solusi masih dari sistem
+*Postcondition*|Solusi dari sistem sudah ditambahkan dari saran user
+Asumsi|Solusi dari sistem kurang lengkap
+
 
 ### Activity Diagram
 
@@ -128,7 +145,7 @@ Asumsi|User ingin mencari produk
 
 ### Entity Relationship Diagram
 
-<p><img src="erdiagram.png" width="600"></p>
+<p align="center"><img src="erdiagram.png" width="600"></p>
 
 ### Hasil Implementasi Perangkat Lunak
 
