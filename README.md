@@ -1,3 +1,5 @@
+<p align="center"><img src="https://drive.google.com/open?id=1XpyNiMMzP5Ak2MhEKsLYc5FyVehaQRak" width="400"></p>
+
 # Minefood
 
 **Mata Kuliah :**\
@@ -25,6 +27,17 @@ Tujuan dari pengembangan aplikasi ini untuk masyarakat adalah pengembang dapat m
 
 ## Ruang Lingkup
 
+Ruang lingkup proyek Pengembangan Aplikasi Panduan Konsumsi dan Penyedia Produk Makanan Sehat “Minefood” yaitu:
+1. Program untuk Data Produk Makanan Kemasan\
+Program ini berfungsi menyimpan data produk makanan kemasan beserta komposisi produknya.
+
+2. Aplikasi untuk Masyarakat\
+Fitur-fitur yang ada pada aplikasi ini yaitu:
+- Data riwayat penyakit: untuk mengetahui penyakit dan alergi pengguna sebagai acuan panduan konsumsi produk makanan kemasan.
+- Pindai barcode produk makanan kemasan: untuk mengetahui informasi komposisi produk makanannya.
+- Ulasan: untuk memberi rekomendasi terhadap produk makanan kemasan yang cocok atau tidak bagi pengguna lain berdasarkan data riwayat penyakitnya.
+- Jual beli produk makanan sehat: menyediakan produk makanan sehat buatan industri rumahan yang terjamin sehat.
+- Pembayaran online: untuk fitur jual beli produk makanan kemasan sehingga dapat dikirim ke alamat yang dituju.
 
 ## Deskripsi Perangkat Lunak
 
