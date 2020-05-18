@@ -56,7 +56,6 @@ class adminProdukController extends Controller
     public function store(Request $request)
     {
         //
-        return $request;
         $this->validate($request, [
                'gambar' => 'required|file|image|mimes:jpeg,png,jpg|max:20480',
                'nama' => 'required'

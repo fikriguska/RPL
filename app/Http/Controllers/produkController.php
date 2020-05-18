@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Produk;
+use App\Komposisi;
 use App\LaranganKonsumsi;
 use App\RiwayatPenyakit;
 use App\KomposisiProduk;
@@ -150,7 +151,30 @@ class produkController extends Controller
     public function show($id)
     {
         $produk = Produk::find($id);
-        return view('produk.tampil')->with('produk', $produk);
+        $komposisi = [];
+        $larangan = [];
+        $penyakit = [];
+        $laranganKP = []; // larangan komposisi produk
+        $getKomposisi = KomposisiProduk::select('id_komposisi')->where('id_produk', $id)->get();
+        foreach($getKomposisi as $gk){
+            array_push($komposisi, $gk->id_komposisi);
+        }
+
+        $getPenyakit = RiwayatPenyakit::select('id_penyakit')->find(Auth::user()->id)->get();
+        foreach($getPenyakit as $gp){
+            array_push($penyakit, $gp->id_penyakit);
+        }
+        $getLarangan = LaranganKonsumsi::select('id_komposisi')->whereIn('id_penyakit', $penyakit)->get();
+
+        foreach($getLarangan as $gl){
+            array_push($larangan, $gl->id_komposisi);
+        }
+
+        $laranganKP = array_intersect($komposisi, $larangan);
+
+        $laranganKP2 = Komposisi::whereIn('id', $laranganKP)->get();
+
+        return view('produk.tampil')->with('produk', $produk)->with('laranganKP', $laranganKP)->with('laranganKP2', $laranganKP2)->with('komposisi', $getKomposisi);
     }
 
     /**

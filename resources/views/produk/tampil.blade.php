@@ -33,11 +33,22 @@
       <h2>{{ $produk->nama }} :</h2>    		 
 </div>
 
+
 <div class="prod-box">
 	<div class="prod-img">
   <ul class="box-grid">
   	<div class="box-img">
-        
+	  <?php
+	  		if($laranganKP == []){
+				echo 'makanan ini boleh dimakan :)';
+			}
+			else{
+	  			echo 'Disarankan tidak dimakan karena mengandung ';
+				foreach($laranganKP2 as $kp){
+					echo $kp->nama.", ";
+				}
+			}
+		?>
     </div>
   </ul>
 	</div>
