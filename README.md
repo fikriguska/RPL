@@ -19,27 +19,23 @@ Rekayasa Perangkat Lunak
 
 Perkembangan teknologi informasi di zaman sekarang ini, banyak masyarakat yang sudah menggunakan teknologi canggih seperti smartphone dalam aktivitas sehari-hari. Smartphone juga dapat digunakan oleh berbagai kalangan karena cara menggunakannya sangat mudah. Bahkan smartphone juga menjadi media yang efektif untuk penyebarluasan informasi.
 
-Walaupun teknologi canggih selalu berkembang, ada beberapa masyarakat melupakan kesehatannya sendiri akibat berlebihan menggunakan teknologi tersebut. Seperti tidak menjaga pola makan, selalu memakan produk kemasan yang cepat saji, dan lain-lain. Akibatnya masyarakat sering tiba-tiba terkena penyakit pencernaan karena tidak tahu asal komposisi produk makanannya.
-
-Oleh karena itu, perlu adanya aplikasi panduan konsumsi pada produk makanan kemasan. Sehingga masyarakat tidak perlu khawatir terhadap produk makanan kemasan yang ingin dikonsumsinya. Selain panduan konsumsi, aplikasi tersebut juga terdapat jual beli produk makanan kemasan yang terjamin sehat tanpa pengawet yang dibuat oleh industri rumahan. Tentunya masyarakat menjadi mudah dalam melakukan hidup sehat tanpa khawatir produk makanannya. 
+Walaupun teknologi canggih selalu berkembang, ada beberapa masyarakat melupakan kesehatannya sendiri akibat berlebihan menggunakan teknologi tersebut. Seperti tidak menjaga pola makan, selalu memakan produk kemasan yang cepat saji, dan lain-lain. Akibatnya masyarakat sering tiba-tiba terkena penyakit pencernaan karena tidak tahu asal komposisi produk makanannya. Oleh karena itu, perlu adanya aplikasi panduan konsumsi pada produk makanan kemasan. Sehingga masyarakat tidak perlu khawatir terhadap produk makanan kemasan yang ingin dikonsumsinya.
 
 ## Tujuan
 
-Tujuan dari pengembangan aplikasi ini untuk masyarakat adalah pengembang dapat memberi tahu informasi seputar produk makanan kemasan yang ingin dikonsumsi masyarakat dan masyarakat juga dapat menyediakan jual beli produk makanan kemasan yang terjamin sehat bagi tubuh.
+Tujuan dari pengembangan aplikasi ini untuk masyarakat adalah pengembang dapat memberi tahu informasi seputar produk makanan kemasan yang ingin dikonsumsi masyarakat agar terhindar dari alergi atau penyakit.
 
 ## Ruang Lingkup
 
-Ruang lingkup proyek Pengembangan Aplikasi Panduan Konsumsi dan Penyedia Produk Makanan Sehat “Minefood” yaitu:
+Ruang lingkup proyek Pengembangan Aplikasi Panduan Konsumsi Produk Makanan Sehat “Minefood” yaitu:
 1. **Program untuk Data Produk Makanan Kemasan**\
 Program ini berfungsi menyimpan data produk makanan kemasan beserta komposisi produknya.
 
 2. **Aplikasi untuk Masyarakat**\
 Fitur-fitur yang ada pada aplikasi ini yaitu:
-    - Data riwayat penyakit: untuk mengetahui penyakit dan alergi pengguna sebagai acuan panduan konsumsi produk makanan kemasan.
-    - Pindai barcode produk makanan kemasan: untuk mengetahui informasi komposisi produk makanannya.
-    - Ulasan: untuk memberi rekomendasi terhadap produk makanan kemasan yang cocok atau tidak bagi pengguna lain berdasarkan data riwayat penyakitnya.
-    - Jual beli produk makanan sehat: menyediakan produk makanan sehat buatan industri rumahan yang terjamin sehat.
-    - Pembayaran online: untuk fitur jual beli produk makanan kemasan sehingga dapat dikirim ke alamat yang dituju.
+    - Data riwayat penyakit: untuk memasukkan nama penyakit dan alergi pengguna sebagai acuan panduan konsumsi produk makanan kemasan.
+    - Data produk makanan: untuk mengetahui produk makanan yang boleh dikonsumsi dan tidak boleh dikonsumsi.
+    - Saran: untuk memberi rekomendasi terhadap produk makanan kemasan yang cocok atau tidak bagi pengguna lain berdasarkan data riwayat penyakitnya.
 
 ## Deskripsi Perangkat Lunak
 
