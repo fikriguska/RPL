@@ -55,7 +55,7 @@ Fitur pertama yang digunakan saat memulai aplikasi ini adalah memasukkan data ri
 
 2. Fitur Daftar Produk Makanan
 
-<p><img src="userstory_produk.png"></p>
+<p><img src="userstory_produkmakanan.png"></p>
 
 3. Fitur Daftar Komposisi Produk Makanan
 
