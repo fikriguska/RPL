@@ -54,7 +54,7 @@ Fitur pertama yang digunakan saat memulai aplikasi ini adalah memasukkan data ri
 **Peran**|**Fitur**|**Nilai Bisnis**
 ---------|---------|----------------
 User|Saya ingin menambahkan nama penyakit pada profil saya|Saya bisa mengetahui daftar larangan konsumsi untuk saya
-User|Saya ingin mencari nama penyakit pada kotak cari|Saya bisa melihat daftar larangan konsumsi berdasarkan penyakit
+User|Saya ingin mencari nama penyakit pada kolom pencarian|Saya bisa melihat daftar larangan konsumsi berdasarkan penyakit
 
 2. Fitur Daftar Produk Makanan
 
@@ -87,11 +87,27 @@ User|Saya ingin mencari saran larangan konsumsi berdasarkan nama penyakit|Saya b
 
 1. Fitur Daftar Penyakit dan Alergi
 
-<p><img src="usecasedesc_penyakit.png"></p>
+**Nama Use Case**|**Memasukkan data penyakit dan alergi**
+-----------------|---------------------------------------
+Aktor|User
+Deskripsi|Menjelaskan proses input data penyakit dan alergi
+*Successful Completion*|<ol><li>User memasukkan data penyakit dan alergi</li><li>Sistem mencari larangan konsumsi berdasarkan penyakit dan alergi User</li><li>Sistem mengirimkan daftar larangan konsumsi kepada User</li></ol>
+Alternatif|<ol><li>User memasukkan data penyakit dan alergi</li><li>Sistem tidak menemukan larangan konsumsi karena penyakit dan alergi User belum teridentifikasi</li><li>Sistem mengirimkan pesan saran larangan konsumsi terhadap penyakit dan alergi User</li></ol>
+*Precondition*|User melakukan input data penyakit dan alergi untuk mencari larangan konsumsi bagi User
+*Postcondition*|Informasi larangan konsumsi bagi User untuk dilanjutkan ke proses pencarian produk makanan yang cocok bagi User
+Asumsi|User kesulitan mencari larangan konsumsi berdasarkan penyakit dan alerginya yang belum teridentifikasi
 
 2. Fitur Daftar Produk Makanan
 
-<p><img src="usecasedesc_produk.png"></p>
+**Nama Use Case**|**Mencari produk makanan**
+-----------------|---------------------------------------
+Aktor|User
+Deskripsi|Menjelaskan proses pencarian produk makanan
+*Successful Completion*|<ol><li>User memasukkan kata kunci nama produk makanan</li><li>Sistem mencari nama produk makanan apakah produk tersebut masuk ke dalam data Minefood</li><li>Jika masuk, sistem akan mencari komposisi produk makanan</li></ol>
+Alternatif|<ol><li>User memasukkan kata kunci nama produk makanan</li><li>Sistem mencari nama produk makanan apakah produk tersebut masuk ke dalam data Minefood</li><li>Jika tidak masuk, sistem mengarahkan User untuk mendaftar nama produk makanan beserta komposisinya</li></ol>
+*Precondition*|User memasukkan nama produk di kolom pencarian
+*Postcondition*|Sistem menampilkan hasil pencarian produk
+Asumsi|User ingin mencari produk
 
 3. Fitur Daftar Komposisi Produk Makanan
 
