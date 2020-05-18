@@ -49,7 +49,17 @@ Fitur pertama yang digunakan saat memulai aplikasi ini adalah memasukkan data ri
 
 ### User Story
 
+1. Fitur Daftar Penyakit dan Alergi
 
+<p><img src="userstory_penyakit.png"></p>
+
+2. Fitur Daftar Produk Makanan
+
+<p><img src="userstory_produk.png"></p>
+
+3. Fitur Saran
+
+<p><img src="userstory_saran.png"></p>
 
 ### Use Case Diagram
 
@@ -69,7 +79,7 @@ Fitur pertama yang digunakan saat memulai aplikasi ini adalah memasukkan data ri
 
 ### Entity Relationship Diagram
 
-<p align="center"><img src="erdiagram.png" width="600"></p>
+<p><img src="erdiagram.png" width="600"></p>
 
 ### Hasil Implementasi Perangkat Lunak
 
