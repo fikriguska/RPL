@@ -107,6 +107,14 @@ class profileController extends Controller
 
 
         $user = User::find($id);
+        if($request->gambar!=null){
+                $file = $request->file('gambar');
+                $nama_file = time()."_".$file->getClientOriginalName();
+                $tujuan_upload = 'gambar';
+                $file->move($tujuan_upload,$nama_file);
+                $produk->gambar = $nama_file;
+        }
+            
         if($request->name != null)
             $user->name = $request->name;
         if($request->email != null)

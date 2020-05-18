@@ -131,7 +131,8 @@
                 {{ $message }}
             </div>
     @enderror
-      <form method="POST" action="{{route('admin_create_produk')}}">
+      <form method="POST" action="{{route('admin_create_produk')}}" enctype="multipart/form-data">
+
       {{ csrf_field() }}
 
         <div class="form-group row">
@@ -140,6 +141,11 @@
             <input type="text" name="nama" class="form-control" id="inputNama3" placeholder="Nama" >
           </div>
         </div>
+        <div class="form-group">
+                         <b>Upload Gambar</b><br/>
+                         <input type="file" name="gambar">
+        </div>
+
         <div class="form-group">
             <label for="inputNama3" class="col-sm-2 col-form-label">Komposisi</label>
 						<input type="text" id="tagstype" name="komposisi" style="width:400px;">

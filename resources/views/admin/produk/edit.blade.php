@@ -129,7 +129,7 @@
                 {{ $message }}
             </div>
     @enderror
-      <form method="POST" action="{{route('admin_edit_produk', $produk->id)}}">
+      <form method="POST" action="{{route('admin_edit_produk', $produk->id)}}" enctype="multipart/form-data">
       {{ csrf_field() }}
 
         <div class="form-group row">
@@ -137,6 +137,10 @@
           <div class="col-sm-10">
             <input type="text" name="nama" class="form-control" id="inputNama3" placeholder="Nama" value="{{ $produk->nama }}">
           </div>
+        </div>
+        <div class="form-group">
+                             <b>Upload Gambar</b><br/>
+                             <input type="file" name="gambar">
         </div>
         <div class="form-group">
             <label for="inputNama3" class="col-sm-2 col-form-label">Komposisi</label>

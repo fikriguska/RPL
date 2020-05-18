@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Edit Profile</title>
+	<title>Ubah Profil</title>
 
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/editprofile.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}">
@@ -24,7 +24,7 @@
 
 	<div class="main-btn">
 		<ul>
-				<li><a href="/">Home</a></li>
+				<li><a href="/">Beranda</a></li>
 				<li><a href="/saran">Saran</a></li>
 		</ul>
 
@@ -34,13 +34,15 @@
 
 		<!-- heading -->
 		<div class="heading">
+		<!-- enctype="multipart/form-data" -->
 
 			<!-- image container -->
 			<div class="image-container">
 				<div class="img">
-					<img src="test.png">
+					<img src="/gambar/{{Auth::user()->gambar}}" style="object-fit: cover;">
 				</div>
-			</div>	
+			</div>
+	
 			<!-- end image container -->
 
 			<!-- right display -->
@@ -81,22 +83,26 @@
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                @enderror
-				
-				{!! Form::open(['route'=>['edit_profile', $user->id], 'method'=> 'POST']) !!}
-					{{ csrf_field() }}
-					<!-- {{ method_field('patch') }} -->
+				@enderror
+		<!-- {!! Form::open(['route'=>['edit_profile', $user->id], 'method'=> 'POST', 'enctype' => 'multipart/form-data']) !!} -->
+		<form method="POST" action="{{route('edit_profile', $user->id)}}" enctype="multipart/form-data">
 
+				
+		<div class="form-group" style="margin-left: 30px">
+						<b>Unggah Gambar</b><br/>
+						<input type="file" name="gambar">
+			</div>
+					<!-- {{ method_field('patch') }} -->
 					<div class="form-group">
-						<label class="label">Name</label class="label">
+						<label class="label">Nama</label class="label">
 						<input class="text-field" type="text" name="name" value="{{Auth::user()->name}}">
 					</div>
 					<div class="form-group">
-						<label class="label"><i class="fas fa-lock"></i> Password</label class="label">
+						<label class="label"><i class="fas fa-lock"></i> Kata Sandi</label class="label">
 						<input class="text-field" type="password" name="password">
 					</div>
 					<div class="form-group">
-						<label class="label"><i class="fas fa-lock"></i>New Password</label class="label">
+						<label class="label"><i class="fas fa-lock"></i>Konfirmasi Kata Sandi</label class="label">
 						<input class="text-field" type="password" name="newpassword">
 					</div>
 					<div class="form-group">
@@ -133,7 +139,7 @@
 							?>
 					</script>
 					<div class="form-group">
-						<button class="btn-submit" onclick="alert('Profile Saved')" type="submit">Save</button>
+						<button class="btn-submit" onclick="alert('Profile Saved')" type="submit">Simpan</button>
 					</div>
 				</form>
 			</div>

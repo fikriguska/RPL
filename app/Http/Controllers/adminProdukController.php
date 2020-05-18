@@ -56,8 +56,18 @@ class adminProdukController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+               'gambar' => 'required|file|image|mimes:jpeg,png,jpg|max:20480',
+               'nama' => 'required'
+        ]);
+        $file = $request->file('gambar');
+        $nama_file = time()."_".$file->getClientOriginalName();
+        $tujuan_upload = 'gambar';
+        $file->move($tujuan_upload,$nama_file);
+
         $produk = new Produk;
         $produk->nama = $request->nama;
+        $produk->gambar = $nama_file;
         $produk->save();
 
         if($request->komposisi != null){
@@ -114,6 +124,7 @@ class adminProdukController extends Controller
     {
         //
         $this->validate($request, [
+            'gambar' => 'file|image|mimes:jpeg,png,jpg|max:20480',
             'nama' => ['string', 'nullable', 'max:255'],
         ]);
 
@@ -121,6 +132,15 @@ class adminProdukController extends Controller
         $produk = Produk::find($id);
         if($request->nama != null)
             $produk->nama = $request->nama;
+        
+        if($request->gambar!=null){
+                $file = $request->file('gambar');
+                $nama_file = time()."_".$file->getClientOriginalName();
+                $tujuan_upload = 'gambar';
+                $file->move($tujuan_upload,$nama_file);
+                $produk->gambar = $nama_file;
+        }
+                
 
         if($request->komposisi != null){
             $komposisi = explode(",", $request->komposisi);

@@ -23,17 +23,17 @@
 						@endif
 			@endif
 
-            <li><a href="/">Home</a></li>
+            <li><a href="/">Beranda</a></li>
             @guest
-            <li><a href="">Log in</a></li>
+            <li><a href="">Masuk</a></li>
             @if (Route::has('register'))
-            <li><a href="{{ route('register')}}">Sign Up</a></li>
+            <li><a href="{{ route('register')}}">Daftar</a></li>
             @endif
             @else
             <li><a href="/produk">Produk</a></li>
             <li class="active"><a href="/saran">Saran</a></li>
-            <li><a href="/profile">profile</a></li>
-            <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a></li>
+            <li><a href="/profile">Profil</a></li>
+            <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Keluar</a></li>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
@@ -55,7 +55,7 @@
         <div class="input-box">
             {{ Form::textarea('pesan', '', ['placeholder'=> "saran kamu...", 'style'=>'width:500px; height:200px;'])}}
         </div>
-        {{ Form::submit('submit', ['class'=>'btn btn-primary', 'onclick' => 'alert("Saran Terkirim")'])}}
+        {{ Form::submit('Kirim', ['class'=>'btn btn-primary', 'onclick' => 'alert("Saran Terkirim")'])}}
     {!! Form::close() !!}
 
 	</div>

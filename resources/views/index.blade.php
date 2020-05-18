@@ -19,17 +19,17 @@
 						@endif
 					@endif
 
-					<li class="active"><a href="/">Home</a></li>
+					<li class="active"><a href="/">Beranda</a></li>
                     @guest
-                    <li><a href="{{ route('login') }}">Log in</a></li>
+                    <li><a href="{{ route('login') }}">Masuk</a></li>
                     @if (Route::has('register'))
-                    <li><a href="{{ route('register')}}">Sign Up</a></li>
+                    <li><a href="{{ route('register')}}">Daftar</a></li>
                     @endif
                     @else
                     <li><a href="/produk">Produk</a></li>
                     <li><a href="/saran">Saran</a></li>
-                    <li><a href="/profile">profile</a></li>
-                    <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a></li>
+                    <li><a href="/profile">Profil</a></li>
+                    <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Keluar</a></li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
@@ -39,7 +39,7 @@
 
 				<form action="/produk" method="get">
 					  <div class="search-box">
-					  	<input class="search-txt" type="text" name="cari" placeholder="Search">
+					  	<input class="search-txt" type="text" name="cari" placeholder="Cari produk...">
 					  	<button  type="submit"  placeholder="" style=" background-color: Transparent;outline:none;"> <a class="search-btn" href="#"><i class="fas fa-search"></i></a> </button>
   				  </div>
   				</form>

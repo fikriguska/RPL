@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Profile</title>
+	<title>Profil</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/profile.css')}}">
     <script src="{{ asset('assets/js/fontawesome.kit.js') }}"></script>
 
@@ -16,7 +16,7 @@
 				<!-- <h3>Mahasiswa</h3> -->
 
 			</div>
-			<a href="/profile/edit"> <input class="btn" type="button" name="" value="Edit Profile"> </a>
+			<a href="/profile/edit"> <input class="btn" type="button" name="" value="Ubah Profil"> </a>
 
 			<div class="main-profile">
 

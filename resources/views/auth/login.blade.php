@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login and Sign Up Page</title>
+	<title>Masuk</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/login.css') }}">
 	<script src="https://kit.fontawesome.com/4814c1385c.js" crossorigin="anonymous"></script>
 </head>
@@ -13,7 +13,7 @@
 				</div>
 				
 	<div class="login-box">
-		<h1>Log in</h1>
+		<h1>Masuk</h1>
 		<h2><img src="{{ asset('assets/img/logom.png') }}" alt="logom"></h2>
     @error('email')
         <span class="invalid-feedback" role="alert">
@@ -29,17 +29,17 @@
     @csrf
         <div class="textbox">
             <i class="far fa-user"></i>
-            <input type="text" placeholder="email" name="email">
+            <input type="text" placeholder="Email" name="email">
         
         </div>
 
         <div class="textbox">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" name="password">
+            <input type="password" placeholder="Kata Sandi" name="password">
         </div>
 
-        <input class="btn" type="submit" name="" value="Log in">
-        <a href="/register"> <input class="btn1" type="button" name="" value="Sign up?">  </a>
+        <input class="btn" type="submit" name="" value="Masuk">
+        <a href="/register"> <input class="btn1" type="button" name="" value="Daftar akun">  </a>
 
         </div>
     </form>
