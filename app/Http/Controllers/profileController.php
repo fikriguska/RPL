@@ -97,7 +97,6 @@ class profileController extends Controller
     public function update(Request $request, $id)
     {
         //
-
         $this->validate($request, [
             'name' => ['string', 'nullable', 'max:255'],
             'email' => ['string', 'nullable', 'email', 'max:255', 'unique:users,email,'.$id],
@@ -112,7 +111,8 @@ class profileController extends Controller
                 $nama_file = time()."_".$file->getClientOriginalName();
                 $tujuan_upload = 'gambar';
                 $file->move($tujuan_upload,$nama_file);
-                $produk->gambar = $nama_file;
+                // return $nama_file;
+                $user->gambar = $nama_file;
         }
             
         if($request->name != null)

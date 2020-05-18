@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Profil</title>
+	<title>Profile</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/profile.css')}}">
     <script src="{{ asset('assets/js/fontawesome.kit.js') }}"></script>
 
@@ -10,13 +10,13 @@
 <body>
 	<div class="profile-card">
 			<div class="image-container">
-			<img src="">
+			<img src="/gambar/{{Auth::user()->gambar}}">
 			<div class="title">
 				<h2>{{ Auth::user()->name }}</h2>
 				<!-- <h3>Mahasiswa</h3> -->
 
 			</div>
-			<a href="/profile/edit"> <input class="btn" type="button" name="" value="Ubah Profil"> </a>
+			<a href="/profile/edit"> <input class="btn" type="button" name="" value="Ubah Profile"> </a>
 
 			<div class="main-profile">
 

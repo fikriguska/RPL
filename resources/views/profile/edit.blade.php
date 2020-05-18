@@ -38,10 +38,14 @@
 
 			<!-- image container -->
 			<div class="image-container">
+				<img src="/gambar/{{Auth::user()->gambar}}">
+			</div>
+			<div class="title">
+			<!-- <div class="image-container">
 				<div class="img">
 					<img src="/gambar/{{Auth::user()->gambar}}" style="object-fit: cover;">
 				</div>
-			</div>
+			</div> -->
 	
 			<!-- end image container -->
 
@@ -86,7 +90,7 @@
 				@enderror
 		<!-- {!! Form::open(['route'=>['edit_profile', $user->id], 'method'=> 'POST', 'enctype' => 'multipart/form-data']) !!} -->
 		<form method="POST" action="{{route('edit_profile', $user->id)}}" enctype="multipart/form-data">
-
+		@csrf
 				
 		<div class="form-group" style="margin-left: 30px">
 						<b>Unggah Gambar</b><br/>
