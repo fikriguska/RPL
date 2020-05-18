@@ -1,4 +1,4 @@
-<p align="center"><img src="logominefood.png"></p>
+<p align="center"><img src="minefoodlogo.png"></p>
 
 # Minefood
 
