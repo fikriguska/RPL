@@ -67,25 +67,25 @@ Fitur pertama yang digunakan saat memulai aplikasi ini adalah memasukkan data ri
 
 ### Use Case Diagram
 
-<p align="center"><img src="usercase.png"></p>
+<p align="center"><img src="usecase.png"></p>
 
 ### Use Case Description
 
 1. Fitur Daftar Penyakit dan Alergi
 
-<p><img src="usercasedesc_penyakit.png"></p>
+<p><img src="usecasedesc_penyakit.png"></p>
 
 2. Fitur Daftar Produk Makanan
 
-<p><img src="usercasedesc_produk.png"></p>
+<p><img src="usecasedesc_produk.png"></p>
 
 3. Fitur Daftar Komposisi Produk Makanan
 
-<p><img src="usercasedesc_komposisi.png"></p>
+<p><img src="usecasedesc_komposisi.png"></p>
 
 4. Fitur Saran
 
-<p><img src="usercasedesc_saran.png"></p>
+<p><img src="usecasedesc_saran.png"></p>
 
 ### Activity Diagram
 
