@@ -1,6 +1,6 @@
 <p align="center"><img src="minefoodlogo.png"></p>
 
-# Minefood
+## Minefood
 
 **Aplikasi Panduan Konsumsi Produk Makanan**
 
@@ -11,23 +11,23 @@
 **Asisten Praktikum :** Feby Tri Saputra
 
 **Kelompok 10 :**
-1. Bintang Fikriguska           (G64180024)
-2. Putri Melanita Londong Bua   (G64180053)
-3. Ananda Alfarishi Anwar       (G64180097)
+1. Bintang Fikriguska (G64180024)
+2. Putri Melanita Londong Bua (G64180053)
+3. Ananda Alfarishi Anwar (G64180097)
 
 ---
 
-## Latar Belakang
+### Latar Belakang
 
 Perkembangan teknologi informasi di zaman sekarang ini, banyak masyarakat yang sudah menggunakan teknologi canggih seperti smartphone dalam aktivitas sehari-hari. Smartphone juga dapat digunakan oleh berbagai kalangan karena cara menggunakannya sangat mudah. Bahkan smartphone juga menjadi media yang efektif untuk penyebarluasan informasi.
 
 Walaupun teknologi canggih selalu berkembang, ada beberapa masyarakat melupakan kesehatannya sendiri akibat berlebihan menggunakan teknologi tersebut. Seperti tidak menjaga pola makan, selalu memakan produk kemasan yang cepat saji, dan lain-lain. Akibatnya masyarakat sering tiba-tiba terkena penyakit pencernaan karena tidak tahu asal komposisi produk makanannya. Oleh karena itu, perlu adanya aplikasi panduan konsumsi pada produk makanan kemasan. Sehingga masyarakat tidak perlu khawatir terhadap produk makanan kemasan yang ingin dikonsumsinya.
 
-## Tujuan
+### Tujuan
 
 Tujuan dari pengembangan aplikasi ini untuk masyarakat adalah pengembang dapat memberi tahu informasi seputar produk makanan kemasan yang ingin dikonsumsi masyarakat agar terhindar dari alergi atau penyakit.
 
-## Ruang Lingkup
+### Ruang Lingkup
 
 Ruang lingkup proyek Pengembangan Aplikasi Panduan Konsumsi Produk Makanan “Minefood” yaitu:
 1. **Program untuk Data Produk Makanan**\
@@ -39,39 +39,44 @@ Fitur-fitur yang ada pada aplikasi ini yaitu:
     - Data produk makanan: untuk mengetahui produk makanan yang boleh dikonsumsi dan tidak boleh dikonsumsi.
     - Saran: untuk memberi rekomendasi terhadap produk makanan kemasan yang cocok atau tidak bagi pengguna lain berdasarkan data riwayat penyakitnya.
 
-## Deskripsi Perangkat Lunak
+### Deskripsi Perangkat Lunak
 
 Fitur pertama yang digunakan saat memulai aplikasi ini adalah memasukkan data riwayat penyakit pengguna yang selanjutnya akan diteruskan ke fitur yang lain. Fitur selanjutnya terdapat memasukkan nama produk makanan untuk mencari data komposisi produk makanannya dan dicocokan dengan riwayat penyakit pengguna. Lalu, aplikasi menyatakan apakah produk makanan tersebut aman dikonsumsi oleh pengguna atau tidak. Selain itu, terdapat fitur ulasan dari pengguna lain terhadap produk makanan tersebut, apakah produk makanan tersebut juga berpengaruh pada penyakit lain atau tidak. Aplikasi ini tersedia juga fitur jual beli produk makanan sehat yang dibuat oleh industri rumahan sehingga pengguna tak perlu khawatir mengonsumsi terhadap produk makanannya. Jual beli produk makanan tersebut dapat dilakukan secara online dengan pembayaran online dan dikirim ke alamat yang dituju.
 
-## Analisis User (User Profile)
+### Analisis User (User Profile)
 
 
 
-## User Story
+### User Story
 
 
 
-## Use Case Diagram
+### Use Case Diagram
 
 
 
-## Use Case Description
+### Use Case Description
 
 
 
-## Activity Diagram
+### Activity Diagram
 
 
 
-## Gantt Chart
+### Gantt Chart
 
 
 
-## Entity Relationship Diagram
+### Entity Relationship Diagram
 
 <p align="center"><img src="erdiagram.png" width="600"></p>
 
-## Hasil Implementasi Perangkat Lunak
+### Hasil Implementasi Perangkat Lunak
+
+
+
+
+
 
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
