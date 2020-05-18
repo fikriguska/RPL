@@ -1,6 +1,6 @@
 <p align="center"><img src="minefoodlogo.png"></p>
 
-## Minefood
+## Minefood.
 
 **Aplikasi Panduan Konsumsi Produk Makanan**
 
