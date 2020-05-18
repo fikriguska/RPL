@@ -7,6 +7,8 @@ Rekayasa Perangkat Lunak
 
 **Paralel Praktikum :** 2
 
+**Asisten Praktikum :** Feby Tri Saputra
+
 **Kelompok 10 :**
 1. Bintang Fikriguska (G64180024)
 2. Putri Melanita Londong Bua (G64180053)
@@ -28,10 +30,10 @@ Tujuan dari pengembangan aplikasi ini untuk masyarakat adalah pengembang dapat m
 ## Ruang Lingkup
 
 Ruang lingkup proyek Pengembangan Aplikasi Panduan Konsumsi dan Penyedia Produk Makanan Sehat “Minefood” yaitu:
-1. Program untuk Data Produk Makanan Kemasan\
+1. **Program untuk Data Produk Makanan Kemasan**\
 Program ini berfungsi menyimpan data produk makanan kemasan beserta komposisi produknya.
 
-2. Aplikasi untuk Masyarakat\
+2. **Aplikasi untuk Masyarakat**\
 Fitur-fitur yang ada pada aplikasi ini yaitu:
     - Data riwayat penyakit: untuk mengetahui penyakit dan alergi pengguna sebagai acuan panduan konsumsi produk makanan kemasan.
     - Pindai barcode produk makanan kemasan: untuk mengetahui informasi komposisi produk makanannya.
