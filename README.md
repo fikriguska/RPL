@@ -4,17 +4,16 @@
 
 **Aplikasi Panduan Konsumsi Produk Makanan**
 
-**Mata Kuliah :**\
-Rekayasa Perangkat Lunak
+**Mata Kuliah :** Rekayasa Perangkat Lunak
 
 **Paralel Praktikum :** 2
 
 **Asisten Praktikum :** Feby Tri Saputra
 
 **Kelompok 10 :**
-1. Bintang Fikriguska (G64180024)
-2. Putri Melanita Londong Bua (G64180053)
-3. Ananda Alfarishi Anwar (G64180097)
+1. Bintang Fikriguska           (G64180024)
+2. Putri Melanita Londong Bua   (G64180053)
+3. Ananda Alfarishi Anwar       (G64180097)
 
 ---
 
@@ -30,9 +29,9 @@ Tujuan dari pengembangan aplikasi ini untuk masyarakat adalah pengembang dapat m
 
 ## Ruang Lingkup
 
-Ruang lingkup proyek Pengembangan Aplikasi Panduan Konsumsi Produk Makanan Sehat “Minefood” yaitu:
-1. **Program untuk Data Produk Makanan Kemasan**\
-Program ini berfungsi menyimpan data produk makanan kemasan beserta komposisi produknya.
+Ruang lingkup proyek Pengembangan Aplikasi Panduan Konsumsi Produk Makanan “Minefood” yaitu:
+1. **Program untuk Data Produk Makanan**\
+Program ini berfungsi menyimpan data produk makanan beserta komposisi produknya.
 
 2. **Aplikasi untuk Masyarakat**\
 Fitur-fitur yang ada pada aplikasi ini yaitu:
