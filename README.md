@@ -1,4 +1,4 @@
-<p align="center"><img src="https://drive.google.com/open?id=1XpyNiMMzP5Ak2MhEKsLYc5FyVehaQRak" width="400"></p>
+<p align="center"><img src="logo.png"></p>
 
 # Minefood
 
