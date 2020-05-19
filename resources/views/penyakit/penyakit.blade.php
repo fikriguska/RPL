@@ -29,31 +29,18 @@
 	  <div class="search-box">
 	  	<input class="search-txt" type="text" name="cari" placeholder="Cari Produk...">
 	  	<button  type="submit"  placeholder="" style=" background-color: Transparent;outline:none;"> <a class="search-btn" href="#"><i class="fas fa-search"></i></a> </button>
+	  	
     </div>
   </form>
 
 <div class="prod-header">
-
-  <?php
-          if($query != ''){
-            $data = explode('=', $query);
-            echo "Hasil cari: $data[1]";
-          }
-  ?>
-  <?php
-      if($consumable == 2){
-        echo "<h2>Produk: </h2>";
-      }
-      elseif($consumable == 1){
-        echo "<h2>Boleh dimakan: </h2>";
-      }
-      else{
-        echo "<h2>Sebaiknya tidak dimakan: </h2>";
-
-      }
-
-  ?>
-  
+<!--  -->
+<form action="/penyakit" method="get">
+	  <div class="search-box">
+	  	<input class="search-txt" type="text" name="cari" placeholder="Cari Produk...">
+	  	<button  type="submit"  placeholder="" style=" background-color: Transparent;outline:none;"> <a class="search-btn" href="#"><i class="fas fa-search"></i></a> </button>
+    </div>
+  </form>  
 </div>
 
 
@@ -77,18 +64,12 @@
     <li><a href="#"><img src="http://placehold.it/150x150" /></a></li>
     <li><a href="#"><img src="http://placehold.it/150x150" /></a></li>
     <li><a href="#"><img src="http://placehold.it/150x150" /></a></li> -->
-    @if(count($produk) > 0)
-    @foreach($produk as $p)
-        
-        <li>
-          <a href="/produk/{{$p->id}}">
-            <img src="/gambar/{{$p->gambar}}" width="200px" height="200px" style="object-fit: cover;" align="middle"/>
-          </a>
-        </li>
+    @foreach($penyakit as $p)
+      <li><a href="/penyakit/{{$p->id}}">{{$p->nama}} </a> </li>
     @endforeach
-    @else
-        <h4 style="color:#fff"> produk tidak ditemukan </h4>
-    @endif
+
+
+
     
     </div>
   </ul>
@@ -97,42 +78,7 @@
 
 <section class="effect-1">
 	<ul>
-  <!-- {{ var_dump($query == 'cari=sds') }} -->
-        <?php
-          if($consumable == 2){
-            if($query != ''){
-              echo "<li class='rv-bg'><a href='/consumable?$query'><span data-hover='Boleh&nbsp;dimakan'>
-              Boleh dimakan";
-              echo "<li class='rv-bg'><a href='/not-consumable?$query'><span data-hover='Sebaiknya&nbsp;tidak&nbsp;dimakan'>
-              Sebaiknya tidak dimakan";
-            }
-            else{
-              echo '<li class="rv-bg"><a href="/consumable"><span data-hover="Boleh&nbsp;dimakan">
-              Boleh dimakan';
-              echo '<li class="rv-bg"><a href="/not-consumable"><span data-hover="Sebaiknya&nbsp;tidak&nbsp;dimakan">
-              Sebaiknya tidak dimakan';
-            }
-
-          }
-          elseif($consumable == 1){
-            if($query != '')
-      	  	  echo "<li class='rv-bg'><a href='/not-consumable?$query'><span data-hover='Sebaiknya&nbsp;tidak&nbsp;dimakan'>";
-            else
-              echo '<li class="rv-bg"><a href="/not-consumable"><span data-hover="Sebaiknya&nbsp;tidak&nbsp;dimakan">';
-            echo 'Sebaiknya tidak dimakan';
-          }
-          else{
-            if($query != '')
-              echo "<li class='rv-bg'><a href='/consumable?$query'><span data-hover='Boleh&nbsp;dimakan'>";
-            else
-              echo '<li class="rv-bg"><a href="/consumable"><span data-hover="Boleh&nbsp;dimakan">';
-            echo 'Boleh dimakan';
-
-          }
-        ?>
-        
-        
-      </span></a></li>
+    
 	</ul>
 </section>
 

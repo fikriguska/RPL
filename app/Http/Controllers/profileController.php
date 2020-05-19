@@ -155,7 +155,7 @@ class profileController extends Controller
     
         $user->save();
 
-        return back();
+        return redirect('/profile');
     }
 
     /**

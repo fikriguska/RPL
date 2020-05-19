@@ -41,6 +41,11 @@ Route::post('/create-saran', 'saranController@store')->name('create_saran');
 Route::get('/produk', 'produkController@index');
 Route::get('/produk/{id}', 'produkController@show');
 
+Route::get('/penyakit', 'penyakitController@index');
+Route::get('/penyakit/{id}', 'penyakitController@show');
+
+
+
 Route::get('/consumable', 'produkController@consumable');
 Route::get('/not-consumable', 'produkController@notConsumable');
 
@@ -81,6 +86,9 @@ Route::post('/admin/larangan/update/{id}', 'adminLaranganController@update')->na
 Route::post('/admin/larangan/store', 'adminLaranganController@store')->name('admin_create_larangan');
 Route::get('/admin/larangan/create', 'adminLaranganController@create');
 Route::get('/admin/larangan/delete/{id}', 'adminLaranganController@destroy');
+
+
+
 
 
 Route::get('/json_komposisi', 'komposisiController@komposisi')->name('json_komposisi');

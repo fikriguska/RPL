@@ -160,7 +160,11 @@ class produkController extends Controller
             array_push($komposisi, $gk->id_komposisi);
         }
 
-        $getPenyakit = RiwayatPenyakit::select('id_penyakit')->find(Auth::user()->id)->get();
+
+        // return Auth::user()->id;
+
+        $getPenyakit = RiwayatPenyakit::select('id_penyakit')->where('id_user', Auth::user()->id)->get();
+
         foreach($getPenyakit as $gp){
             array_push($penyakit, $gp->id_penyakit);
         }
