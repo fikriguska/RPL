@@ -173,8 +173,9 @@ class produkController extends Controller
         $laranganKP = array_intersect($komposisi, $larangan);
 
         $laranganKP2 = Komposisi::whereIn('id', $laranganKP)->get();
+        $komposisi = Komposisi::whereIn('id', $komposisi)->get();
 
-        return view('produk.tampil')->with('produk', $produk)->with('laranganKP', $laranganKP)->with('laranganKP2', $laranganKP2)->with('komposisi', $getKomposisi);
+        return view('produk.tampil')->with('produk', $produk)->with('laranganKP', $laranganKP)->with('laranganKP2', $laranganKP2)->with('komposisi', $komposisi);
     }
 
     /**

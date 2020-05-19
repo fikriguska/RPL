@@ -38,16 +38,36 @@
 	<div class="prod-img">
   <ul class="box-grid">
   	<div class="box-img">
+	  <div>
+	  	<img src="/gambar/{{$produk->gambar}}" alt="" style="border-radius: 20px 20px; width: 200px">
+	  </div>
 	  <?php
 	  		if($laranganKP == []){
-				echo 'makanan ini boleh dimakan :)';
+				echo '<span style="background-color: #77ff33;"> makanan ini boleh dimakan :) </span>';
 			}
 			else{
-	  			echo 'Disarankan tidak dimakan karena mengandung ';
-				foreach($laranganKP2 as $kp){
-					echo $kp->nama.", ";
+	
+				echo '<span style="background-color: red; color: white;"> Disarankan tidak dimakan karena mengandung';
+				for($i = 0; $i < count($laranganKP2); $i++){
+					echo " ".$laranganKP2[$i]->nama;
+					if(count($laranganKP2) > 1 && $i == count($laranganKP2)-2){
+						echo " dan";
+					}
+					else if($i != count($laranganKP2)-1){
+						echo ",";
+					}
 				}
+				echo ".";
 			}
+			echo "<div style='color: white;'>";
+			echo "<h2> Komposisi: </h2>";
+			echo "<ul style='padding: 0; margin: 0'>";
+			foreach($komposisi as $k){
+				echo "<li> - $k->nama </li>";
+			}
+			echo "</ul>";
+			echo "</div>"
+
 		?>
     </div>
   </ul>
