@@ -145,7 +145,7 @@ Asumsi|Solusi dari sistem kurang lengkap
 
 ## Gantt Chart
 
-<p><img src="ganttchart.png"></p>
+<p><img src="ganttchart.jpg"></p>
 
 ## Entity Relationship Diagram
 
