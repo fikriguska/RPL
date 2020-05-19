@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Penyakit;
+use App\LaranganKonsumsi;
+use App\RiwayatPenyakit;
+
+
 
 class adminPenyakitController extends Controller
 {
@@ -118,6 +122,12 @@ class adminPenyakitController extends Controller
     public function destroy($id)
     {
         //
+        $laranganKonsumsi = LaranganKonsumsi::where('id_penyakit', $id);
+        $laranganKonsumsi->delete();
+
+        $riwayatPenyakit = RiwayatPenyakit::where('id_penyakit', $id);
+        $riwayatPenyakit->delete();
+
         $penyakit = Penyakit::find($id);
         $penyakit->delete();
         return back();

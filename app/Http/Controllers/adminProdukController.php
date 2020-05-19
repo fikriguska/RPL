@@ -184,6 +184,8 @@ class adminProdukController extends Controller
     public function destroy($id)
     {
         //
+        $komposisiProduk = KomposisiProduk::where('id_produk', $id);
+        $komposisiProduk->delete();
         $produk = Produk::find($id);
         $produk->delete();
         return back();

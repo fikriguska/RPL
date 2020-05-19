@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Komposisi;
+use App\KomposisiProduk;
+use App\LaranganKonsumsi;
 
 class adminKomposisiController extends Controller
 {
@@ -118,6 +120,13 @@ class adminKomposisiController extends Controller
     public function destroy($id)
     {
         //
+        $komposisiProduk = KomposisiProduk::where('id_komposisi', $id);
+        $komposisiProduk->delete();
+    
+
+        $laranganKonsumsi = LaranganKonsumsi::where('id_komposisi', $id);
+        $laranganKonsumsi->delete();
+
         $komposisi = Komposisi::find($id);
         $komposisi->delete();
         return back();

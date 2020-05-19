@@ -194,8 +194,6 @@ section.effect-1 li.rv-bg a span:before {
   color: #BE4868;
   background-color: #fff;
   content: attr(data-hover);
-  font-weight: bold;
-
 }
 
 section.effect-1 li.rv-bg a:hover span, section.effect-1 li.rv-bg a:focus span {
