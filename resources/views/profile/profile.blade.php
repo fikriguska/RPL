@@ -4,10 +4,20 @@
 <head>
 	<title>Profile</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/profile.css')}}">
+
     <script src="{{ asset('assets/js/fontawesome.kit.js') }}"></script>
 
 </head>
 <body>
+<div class="main-btn">
+		<ul>
+					<li><a href="/home">Home</a></li>
+					<li><a href="/saran">Saran</a></li>
+					
+
+		</ul>
+</div>
+	
 	<div class="profile-card">
 			<div class="image-container">
 			<img src="/gambar/{{Auth::user()->gambar}}">

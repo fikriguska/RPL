@@ -31,7 +31,7 @@ class penyakitController extends Controller
         else
             $penyakit = Penyakit::all();
         
-        return view('penyakit.penyakit')->with('penyakit', $penyakit);
+        return view('penyakit.penyakit')->with('penyakit', $penyakit)->with('query', $query);
     }
 
     /**

@@ -16,12 +16,13 @@
 	<div class="btn-group">
       @if(Auth::user()!==null)
 						@if(Auth::user()->admin)
-        		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/admin/user">admin</a></button>
+        		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/admin/user">Admin</a></button>
 
 						@endif
 			@endif
 		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/">Beranda</a></button>
 		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/produk">Produk</a></button>
+		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/penyakit">Penyakit</a></button>
 		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/saran">Saran</a></button>
 		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/profile"><i class="far fa-user"></i>Profil</a></button>
 	</div>
@@ -101,32 +102,32 @@
         <?php
           if($consumable == 2){
             if($query != ''){
-              echo "<li class='rv-bg'><a href='/consumable?$query'><span data-hover='Boleh&nbsp;dimakan'>
-              Boleh dimakan";
-              echo "<li class='rv-bg'><a href='/not-consumable?$query'><span data-hover='Sebaiknya&nbsp;tidak&nbsp;dimakan'>
-              Sebaiknya tidak dimakan";
+              echo "<li class='rv-bg'><a href='/consumable?$query'><span data-hover='aman&nbsp;dikonsumsi'>
+              aman dikonsumsi";
+              echo "<li class='rv-bg'><a href='/not-consumable?$query'><span data-hover='tidak&nbsp;aman&nbsp;dikonsumsi'>
+              tidak aman dikonsumsi";
             }
             else{
-              echo '<li class="rv-bg"><a href="/consumable"><span data-hover="Boleh&nbsp;dimakan">
-              Boleh dimakan';
-              echo '<li class="rv-bg"><a href="/not-consumable"><span data-hover="Sebaiknya&nbsp;tidak&nbsp;dimakan">
-              Sebaiknya tidak dimakan';
+              echo '<li class="rv-bg"><a href="/consumable"><span data-hover="aman&nbsp;dikonsumsi">
+              aman dikonsumsi';
+              echo '<li class="rv-bg"><a href="/not-consumable"><span data-hover="tidak&nbsp;aman&nbsp;dikonsumsi">
+              tidak aman dikonsumsi';
             }
 
           }
           elseif($consumable == 1){
             if($query != '')
-      	  	  echo "<li class='rv-bg'><a href='/not-consumable?$query'><span data-hover='Sebaiknya&nbsp;tidak&nbsp;dimakan'>";
+      	  	  echo "<li class='rv-bg'><a href='/not-consumable?$query'><span data-hover='tidak&nbsp;aman&nbsp;dikonsumsi'>";
             else
-              echo '<li class="rv-bg"><a href="/not-consumable"><span data-hover="Sebaiknya&nbsp;tidak&nbsp;dimakan">';
-            echo 'Sebaiknya tidak dimakan';
+              echo '<li class="rv-bg"><a href="/not-consumable"><span data-hover="tidak&nbsp;aman&nbsp;dikonsumsi">';
+            echo 'tidak aman dikonsumsi';
           }
           else{
             if($query != '')
-              echo "<li class='rv-bg'><a href='/consumable?$query'><span data-hover='Boleh&nbsp;dimakan'>";
+              echo "<li class='rv-bg'><a href='/consumable?$query'><span data-hover='aman&nbsp;dikonsumsi'>";
             else
-              echo '<li class="rv-bg"><a href="/consumable"><span data-hover="Boleh&nbsp;dimakan">';
-            echo 'Boleh dimakan';
+              echo '<li class="rv-bg"><a href="/consumable"><span data-hover="aman&nbsp;dikonsumsi">';
+            echo 'aman dikonsumsi ';
 
           }
         ?>

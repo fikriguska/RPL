@@ -19,13 +19,6 @@
 		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/saran">Saran</a></button>
 		<button type="button" class="btn btn-default"><a style="text-decoration: none; color: #BE4868;" href="/profile"><i class="far fa-user"></i>Profile</a></button>
 	</div>
-  <form action="/produk" method="get">
-	  <div class="search-box">
-	  	<input class="search-txt" type="text" name="cari" placeholder="Search">
-	  	<button  type="submit"  placeholder="" style=" background-color: Transparent;outline:none;"> <a class="search-btn" href="#"><i class="fas fa-search"></i></a> </button>
-	  	
-    </div>
-  </form>
 
 </div>
 
@@ -43,11 +36,11 @@
 	  </div>
 	  <?php
 	  		if($laranganKP == []){
-				echo '<span style="background-color: #77ff33;"> makanan ini boleh dimakan :) </span>';
+				echo '<span style="background-color: #77ff33;"> aman dikonsumsi. </span>';
 			}
 			else{
 	
-				echo '<span style="background-color: red; color: white;"> Disarankan tidak dimakan karena mengandung';
+				echo '<div style="margin-top: 20px"> <span style="background-color: red; color: white; "> Disarankan tidak dimakan karena mengandung';
 				for($i = 0; $i < count($laranganKP2); $i++){
 					echo " ".$laranganKP2[$i]->nama;
 					if(count($laranganKP2) > 1 && $i == count($laranganKP2)-2){
@@ -57,7 +50,7 @@
 						echo ",";
 					}
 				}
-				echo ".";
+				echo ".</div>";
 			}
 			echo "<div style='color: white;'>";
 			echo "<h2> Komposisi: </h2>";

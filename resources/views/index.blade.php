@@ -27,6 +27,7 @@
                     @endif
                     @else
                     <li><a href="/produk">Produk</a></li>
+                    <li><a href="/penyakit">Penyakit</a></li>
                     <li><a href="/saran">Saran</a></li>
                     <li><a href="/profile">Profil</a></li>
                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Keluar</a></li>
@@ -36,13 +37,6 @@
                     @endguest
 
 				</ul>
-
-				<form action="/produk" method="get">
-					  <div class="search-box">
-					  	<input class="search-txt" type="text" name="cari" placeholder="Cari produk...">
-					  	<button  type="submit"  placeholder="" style=" background-color: Transparent;outline:none;"> <a class="search-btn" href="#"><i class="fas fa-search"></i></a> </button>
-  				  </div>
-  				</form>
 
 			</div>
 
