@@ -147,6 +147,6 @@ Asumsi|Solusi dari sistem kurang lengkap
 
 <p><img src="ganttchart.png"></p>
 
-### Entity Relationship Diagram
+## Entity Relationship Diagram
 
 <p align="center"><img src="erdiagram.png" width="600"></p>
