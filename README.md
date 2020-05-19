@@ -1,4 +1,4 @@
-<p align="center"><img src="minefoodlogo.png"></p>
+<p align="center"><img src="laporan/minefoodlogo.png"></p>
 
 # Minefood.
 
@@ -85,7 +85,7 @@ User|Saya ingin mencari saran larangan konsumsi berdasarkan nama penyakit|Saya b
 
 ## Use Case Diagram
 
-<p align="center"><img src="usecase.png" width="500"></p>
+<p align="center"><img src="laporan/usecase.jpg" width="500"></p>
 
 
 ## Use Case Description
@@ -141,12 +141,12 @@ Asumsi|Solusi dari sistem kurang lengkap
 
 ## Activity Diagram
 
-
+<p><img src="laporan/activity.jpg"></p>
 
 ## Gantt Chart
 
-<p><img src="ganttchart.jpg"></p>
+<p><img src="laporan/ganttchart.jpg"></p>
 
 ## Entity Relationship Diagram
 
-<p align="center"><img src="erdiagram.png" width="600"></p>
+<p align="center"><img src="laporan/erdiagram.png" width="600"></p>
