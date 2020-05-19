@@ -141,7 +141,7 @@ Asumsi|Informasi saran tidak lengkap
 
 ## Activity Diagram
 
-<p><img src="laporan/activity.jpg"></p>
+<p><img src="laporan/activitydiagram.jpg"></p>
 
 ## Gantt Chart
 
