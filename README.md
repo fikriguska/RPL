@@ -38,10 +38,10 @@ Program ini berfungsi untuk menyimpan data penyakit keseluruhannya.
 
 3. **Aplikasi untuk Masyarakat**\
 Fitur-fitur yang ada pada aplikasi ini yaitu:
-    - Data riwayat penyakit: untuk memasukkan nama penyakit dan alergi user sebagai acuan panduan konsumsi produk makanan kemasan.
+    - Data riwayat penyakit: untuk memasukkan nama penyakit dan alergi user sebagai acuan panduan konsumsi produk makanan.
     - Data produk makanan: untuk mengetahui produk makanan yang boleh dikonsumsi dan tidak boleh dikonsumsi.
     - Data komposisi produk makanan: untuk mengetahui kadar komposisi suatu produk makanan.
-    - Saran: untuk memberi rekomendasi terhadap produk makanan kemasan yang cocok atau tidak bagi pengguna lain berdasarkan data riwayat penyakitnya.
+    - Saran: untuk memberi rekomendasi terhadap produk makanan yang cocok atau tidak bagi pengguna lain berdasarkan data riwayat penyakitnya.
 
 ## Deskripsi Perangkat Lunak
 
