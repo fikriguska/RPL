@@ -118,29 +118,43 @@
 						<input type="text" id="tagstype" name="penyakit" style="width:400px;">
 					</div>
 					<script>
-					        var cities = new Bloodhound({
-					          datumTokenizer: Bloodhound.tokenizers.obj.whitespace('nama'),
-					          queryTokenizer: Bloodhound.tokenizers.whitespace,
-					          prefetch: '{{ route("json_penyakit") }}'
-					          // prefetch: '{{ asset("assets/json/cities.json") }}'
-					        });
-					        cities.initialize();
-						
-					        var elt = $('#tagstype');
-					        elt.tagsinput({
-					          itemValue: 'id',
-					          itemText: 'nama',
-					          typeaheadjs: {
-					            name: 'cities',
-					            displayKey: 'nama',
-					            source: cities.ttAdapter()
-					          }
-					        });
-							<?php
+                		fetch('/json_penyakit')
+                  			.then(response=>response.json())
+			                  .then(k=>{
+			
+			                  			var cities = new Bloodhound({
+			                  			  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('nama'),
+			                  			  queryTokenizer: Bloodhound.tokenizers.whitespace,
+			                  			  local : k
+			                  			  // prefetch: '{{ asset("assets/json/cities.json") }}'
+			                  			});
+			                  			cities.initialize();
+			
+			                  			var elt = $('#tagstype');
+			                  			elt.tagsinput({
+			                  			  itemValue: 'id',
+			                  			  itemText: 'nama',
+			                  			  typeaheadjs: {
+			                  			    name: 'cities',
+			                  			    displayKey: 'nama',
+			                  			    source: cities.ttAdapter()
+			                  			  }
+			
+			                  			});
+			                  				                  <?php
 								foreach($riwayat as $r){
-									echo "elt.tagsinput('add', { 'id': $r->id_penyakit, 'nama': '".$penyakit[(int)$r->id_penyakit-1]->nama."' });";
+									echo "elt.tagsinput('add', { 'id': $r->id_penyakit, 'nama': '";
+										foreach($penyakit as $p){
+											if($p->id == $r->id_penyakit){
+												echo $p->nama;
+											}
+										}
+									echo "' });";
 								}
 							?>
+			
+                  			})									
+
 					</script>
 					<div class="form-group">
 						<button class="btn-submit" onclick="alert('Profile Saved')" type="submit">Simpan</button>

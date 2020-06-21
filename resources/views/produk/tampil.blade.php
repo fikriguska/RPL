@@ -40,7 +40,7 @@
 			}
 			else{
 	
-				echo '<div style="margin-top: 20px"> <span style="background-color: red; color: white; "> Disarankan tidak dimakan oleh anda karena mengandung';
+				echo '<div style="margin-top: 20px"> <span style="background-color: red; color: white; "> Disarankan tidak dikonsumsi oleh anda karena mengandung';
 				for($i = 0; $i < count($laranganKP2); $i++){
 					echo " ".$laranganKP2[$i]->nama;
 					if(count($laranganKP2) > 1 && $i == count($laranganKP2)-2){

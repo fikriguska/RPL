@@ -161,6 +161,9 @@ class adminUserController extends Controller
         //
         $saran = Saran::where('id_user', $id);
         $saran->delete();
+        $penyakit= RiwayatPenyakit::where('id_user', $id);
+        $penyakit->delete();
+
         $user = User::find($id);
         $user->delete();
         return back();

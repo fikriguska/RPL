@@ -97,7 +97,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">ADMØØN</a>
+      <a class="navbar-brand" href="#">ADMIN</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -151,24 +151,34 @@
 						<input type="text" id="tagstype" name="komposisi" style="width:400px;">
 				</div>
 					<script>
-					        var cities = new Bloodhound({
-					          datumTokenizer: Bloodhound.tokenizers.obj.whitespace('nama'),
-					          queryTokenizer: Bloodhound.tokenizers.whitespace,
-					          prefetch: '{{ route("json_komposisi") }}'
-					          // prefetch: '{{ asset("assets/json/cities.json") }}'
-					        });
-					        cities.initialize();
-						
-					        var elt = $('#tagstype');
-					        elt.tagsinput({
-					          itemValue: 'id',
-					          itemText: 'nama',
-					          typeaheadjs: {
-					            name: 'cities',
-					            displayKey: 'nama',
-					            source: cities.ttAdapter()
-					          }
-					        });
+
+                fetch('/json_komposisi')
+                  .then(response=>response.json())
+                  .then(k=>{
+
+                  var cities = new Bloodhound({
+                    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('nama'),
+                    queryTokenizer: Bloodhound.tokenizers.whitespace,
+                    local : k
+                    // prefetch: '{{ asset("assets/json/cities.json") }}'
+                  });
+                  cities.initialize();
+
+                  var elt = $('#tagstype');
+                  elt.tagsinput({
+                    itemValue: 'id',
+                    itemText: 'nama',
+                    typeaheadjs: {
+                      name: 'cities',
+                      displayKey: 'nama',
+                      source: cities.ttAdapter()
+                    }
+
+                  });
+
+                  })
+
+
 					</script>
 
 

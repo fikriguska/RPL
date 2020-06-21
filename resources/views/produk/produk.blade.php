@@ -46,10 +46,10 @@
         echo "<h2>Produk: </h2>";
       }
       elseif($consumable == 1){
-        echo "<h2>Boleh dimakan: </h2>";
+        echo "<h2>Boleh dikonsumsi: </h2>";
       }
       else{
-        echo "<h2>Sebaiknya tidak dimakan: </h2>";
+        echo "<h2>Sebaiknya tidak dikonsumsi: </h2>";
 
       }
 

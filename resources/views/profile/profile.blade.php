@@ -37,7 +37,14 @@
 					<h4 class="penyakit">
 					<?php
 								foreach($riwayat as $r){
-									echo $penyakit[(int)$r->id_penyakit-1]->nama." | ";
+									// return $penyakit;
+									// return $r->id_penyakit;
+									// echo $penyakit[(int)$r->id_penyakit-1]->nama." | ";
+									foreach($penyakit as $p){
+										if($p->id == $r->id_penyakit){
+											echo $p->nama." | ";
+										}
+									}
 								}
 					?>
 

@@ -33,7 +33,7 @@
 	<div class="prod-img">
   <ul class="box-grid">
   	<div class="box-img">
-    <h4 style="color: white">Sebaiknya tidak memakan:</h4>
+    <h4 style="color: white">Sebaiknya tidak mengonsumsi:</h4>
     @if(count($produk) > 0)
     @foreach($produk as $p)
         
